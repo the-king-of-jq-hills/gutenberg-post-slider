@@ -5,6 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import React, { useEffect, useState } from 'react';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -79,6 +80,27 @@ export default function Edit({attributes, setAttributes}) {
 	const mediaPreview = !! theImage && (
 		<img src={ theImage } />
 	);
+
+	//https://wptavern.com/wp-json/wp/v2/posts?per_page=1
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        async function loadPosts() {
+            const response = await fetch('https://wptavern.com/wp-json/wp/v2/posts?per_page=2');
+            if(!response.ok) {
+                // oups! something went wrong
+                return;
+            }
+    
+            const posts = await response.json();
+            setPosts(posts);
+        }
+    
+        loadPosts();
+   }, [])
+
+	posts.map((post, index) => (
+		console.log(post.title.rendered)
+	))
 
 	return(	
 		
