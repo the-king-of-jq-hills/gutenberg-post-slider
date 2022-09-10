@@ -1,3 +1,4 @@
+
 /**
  * Retrieves the translation of text.
  *
@@ -11,7 +12,27 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+ import { 
+	useBlockProps, 
+	AlignmentControl, 
+	BlockControls,
+	InspectorControls,
+	PanelColorSettings
+} from '@wordpress/block-editor';
+
+import {
+	TextControl,
+	PanelBody,
+	PanelRow,
+	ToggleControl,
+	ExternalLink,
+	CheckboxControl,
+	RadioControl,
+	SelectControl,
+} from '@wordpress/components';
+
+import { Button } from '@wordpress/components';
+import { MediaUpload, MediaUploadCheck, MediaPlaceholder } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +50,94 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Txp Slider – hello from the editor!', 'txp-slider' ) }
-		</p>
+export default function Edit({attributes, setAttributes}) {
+
+	const { align, backgroundColor, textColor, siteURL, theImage } = attributes;
+
+	const blockProps = useBlockProps({
+		className: 'txp-dynamic-align-'+align,		
+	});
+	
+	const onChangeAlign = ( newAlign ) => {
+		console.log(newAlign);
+		setAttributes( { 
+			align: newAlign === undefined ? 'none' : newAlign, 
+		} )
+	}
+	const onChangeBackgroundColor = ( newBackgroundColor ) => {
+		setAttributes( { backgroundColor: newBackgroundColor } )
+	}
+	const onChangeTextColor = ( newTextColor ) => {
+		setAttributes( { textColor: newTextColor } )
+	}
+
+	const onChangesiteURL = ( newsiteURL ) => {
+		setAttributes( { siteURL : newsiteURL } )
+	}
+	
+	//const thImageURL = "url("+theImage+")";
+	const mediaPreview = !! theImage && (
+		<img src={ theImage } />
+	);
+
+	return(	
+		
+		<>
+			<InspectorControls>
+				<PanelColorSettings
+					title={ __('Color Settings', 'txp-slider') }
+					initialOpen={ false }
+					colorSettings={ [
+						{
+							value: textColor,
+							onChange: onChangeTextColor,
+							label: __("Text Color", "txp-slider")
+						},
+						{
+							value: backgroundColor,
+							onChange: onChangeBackgroundColor,
+							label: __("Background Color", "txp-slider")							
+						}
+					] }
+				/>
+				<PanelBody 
+					title={ __("Link Settings", "txp-slider") }
+					initialOpen= {true}
+				>
+					<PanelRow>
+						<fieldset>
+							<TextControl
+								label={ __("Enter Link URL", "txp-slider") } 
+								value={ siteURL } 
+								onChange={ onChangesiteURL } 
+								help={ __("Add Your URL", "txp-slider") }
+							>
+							</TextControl>
+						</fieldset>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
+			<BlockControls group="block">
+				<AlignmentControl
+					value={ align }
+					onChange={ onChangeAlign }
+				/>
+			</BlockControls>
+			<div className='txp-blockwrap' {...blockProps} >
+					<MediaPlaceholder
+						onSelect = {
+							( el ) => {
+								setAttributes( { theImage: el.url } );
+								console.log("URL is : " + el.url);
+							}
+						}
+						allowedTypes = { [ 'image' ] }
+						multiple = { false }
+						labels = { { title: 'The Image' } }
+						mediaPreview = { mediaPreview }
+					>
+					</MediaPlaceholder>	
+			</div>		
+		</>
 	);
 }

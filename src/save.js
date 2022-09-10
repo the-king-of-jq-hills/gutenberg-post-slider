@@ -4,7 +4,14 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+ import { __ } from '@wordpress/i18n';
+ import { useBlockProps, 
+	RichText,	
+	AlignmentControl, 
+	BlockControls,
+	InspectorControls,
+	PanelColorSettings 
+} from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -15,10 +22,21 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+ export default function save( { attributes } ) {
+
+	const {align, theImage} = attributes;
+	const blockProps = useBlockProps.save({
+		className: 'txp-dynamic-align-'+align,
+	});
+	
+	//console.log(attributes);
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Txp Slider – hello from the saved content!' }
-		</p>
+		<div className='txp-blockwrap' { ...blockProps } >
+			<img
+				src={ theImage }
+				alt=""
+				className='txp-image'
+			/>
+		</div>
 	);
 }
