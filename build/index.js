@@ -132,18 +132,24 @@ function Edit(_ref) {
       month: 'long',
       day: '2-digit'
     });
-    return postDate;
+    return formattedDate;
   };
 
   const slides = posts.map((post, index) => {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       key: `slide-${index}`
-    }, console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
       src: post.episode_featured_image,
       alt: ""
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "txp-post-title"
-    }, post.title.rendered));
+    }, post.title.rendered), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
+      className: "txp-post-link",
+      href: post.link,
+      rel: "nofollow"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("View Post", "txp-slider")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      className: "txp-publish-date"
+    }, fixDate(post.date))); //{ console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date) ) }
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.PanelColorSettings, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Color Settings', 'txp-slider'),
@@ -185,7 +191,9 @@ function Edit(_ref) {
       title: 'The Image'
     },
     mediaPreview: mediaPreview
-  })));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    id: "main"
+  }, slides)));
 }
 
 /***/ }),

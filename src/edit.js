@@ -103,18 +103,20 @@ export default function Edit({attributes, setAttributes}) {
 		let formattedDate = new Date(postDate).toLocaleDateString('en-US', {
 			year: 'numeric',
 			month: 'long',
-			day: '2-digit'
-		  
+			day: '2-digit'		  
 		  })
-		  return postDate;	
+		  return formattedDate;	
 	}
 
 	const slides = posts.map((post, index) => {
+		return (
 		<div key={ `slide-${index}` } >
-			{ console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date) ) }
 			<img src={ post.episode_featured_image } alt="" />
 			<div className='txp-post-title'>{ post.title.rendered }</div>
-		</div>
+			<a className='txp-post-link' href={post.link} rel="nofollow">{ __("View Post", "txp-slider") }</a>
+			<div className='txp-publish-date'>{ fixDate(post.date) }</div>
+		</div> );
+		//{ console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date) ) }
 	})
 
 	return(	
@@ -174,6 +176,9 @@ export default function Edit({attributes, setAttributes}) {
 						mediaPreview = { mediaPreview }
 					>
 					</MediaPlaceholder>	
+					<div id='main'>
+						{slides}	
+					</div>
 			</div>		
 		</>
 	);
