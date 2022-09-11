@@ -98,10 +98,22 @@ export default function Edit({attributes, setAttributes}) {
         loadPosts();
    }, [])
 
+   	const fixDate = ( postDate ) => {
+		postDate = postDate.split('T')[0];
+		let formattedDate = new Date(postDate).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: '2-digit'
+		  
+		  })
+		  return postDate;	
+	}
 
-	posts.map((post, index) => {
+	const slides = posts.map((post, index) => {
 		<div key={ `slide-${index}` } >
-			{ console.log(post.title.rendered + " : " + post.episode_featured_image ) }
+			{ console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date) ) }
+			<img src={ post.episode_featured_image } alt="" />
+			<div className='txp-post-title'>{ post.title.rendered }</div>
 		</div>
 	})
 
