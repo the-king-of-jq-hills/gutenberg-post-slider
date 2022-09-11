@@ -6,6 +6,12 @@
  */
 import { __ } from '@wordpress/i18n';
 import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -110,12 +116,15 @@ export default function Edit({attributes, setAttributes}) {
 
 	const slides = posts.map((post, index) => {
 		return (
-		<div key={ `slide-${index}` } >
-			<img src={ post.episode_featured_image } alt="" />
-			<div className='txp-post-title'>{ post.title.rendered }</div>
-			<a className='txp-post-link' href={post.link} rel="nofollow">{ __("View Post", "txp-slider") }</a>
-			<div className='txp-publish-date'>{ fixDate(post.date) }</div>
-		</div> );
+		<React.Fragment>	
+			<SwiperSlide key={ `slide-${index}` }>
+				<img src={ post.episode_featured_image } alt="" />
+				<div className='txp-post-title'>{ post.title.rendered }</div>
+				<a className='txp-post-link' href={post.link} rel="nofollow">{ __("View Post", "txp-slider") }</a>
+				<div className='txp-publish-date'>{ fixDate(post.date) }</div>
+			</SwiperSlide>
+		</React.Fragment> 
+		);
 		//{ console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date) ) }
 	})
 
@@ -176,9 +185,15 @@ export default function Edit({attributes, setAttributes}) {
 						mediaPreview = { mediaPreview }
 					>
 					</MediaPlaceholder>	
-					<div id='main'>
+					<Swiper 
+						id='main' 
+						modules={[Navigation, Pagination, Scrollbar, A11y]}
+						navigation
+						pagination={{ clickable: true }}
+						scrollbar={{ draggable: true }}
+					>
 						{slides}	
-					</div>
+					</Swiper>
 			</div>		
 		</>
 	);
