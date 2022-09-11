@@ -98,9 +98,12 @@ export default function Edit({attributes, setAttributes}) {
         loadPosts();
    }, [])
 
-	posts.map((post, index) => (
-		console.log(post.title.rendered)
-	))
+
+	posts.map((post, index) => {
+		<div key={ `slide-${index}` } >
+			{ console.log(post.title.rendered + " : " + post.episode_featured_image ) }
+		</div>
+	})
 
 	return(	
 		
