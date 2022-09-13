@@ -5,7 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
@@ -17,7 +17,6 @@ import 'swiper/css/pagination';
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
  import { 
 	useBlockProps, 
@@ -31,15 +30,10 @@ import {
 	TextControl,
 	PanelBody,
 	PanelRow,
-	ToggleControl,
-	ExternalLink,
-	CheckboxControl,
-	RadioControl,
-	SelectControl,
+	GradientPicker,
+	RangeControl
 } from '@wordpress/components';
 
-import { Button } from '@wordpress/components';
-import { MediaUpload, MediaUploadCheck, MediaPlaceholder } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -59,7 +53,7 @@ import './editor.scss';
  */
 export default function Edit({attributes, setAttributes}) {
 
-	const { align, backgroundColor, textColor, siteURL, theImage } = attributes;
+	const { align, gradient, textColor, siteURL, overlayBgOpecity } = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'txp-dynamic-align-'+align,		
@@ -81,13 +75,15 @@ export default function Edit({attributes, setAttributes}) {
 	const onChangesiteURL = ( newsiteURL ) => {
 		setAttributes( { siteURL : newsiteURL } )
 	}
+
+	const onChangesoverlayBgOpecity = ( newoverlayBgOpecity ) => {
+		setAttributes( { overlayBgOpecity : newoverlayBgOpecity } )
+	}	
 	
-	//const thImageURL = "url("+theImage+")";
-	const mediaPreview = !! theImage && (
-		<img src={ theImage } />
-	);
+	const onChangeGradient = ( currentGradient ) => { setAttributes( { gradient : currentGradient } ) }
 
 	//https://wptavern.com/wp-json/wp/v2/posts?per_page=1
+
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         async function loadPosts() {
@@ -96,7 +92,7 @@ export default function Edit({attributes, setAttributes}) {
                 // oups! something went wrong
                 return;
             }
-    
+
             const posts = await response.json();
             setPosts(posts);
         }
@@ -115,17 +111,21 @@ export default function Edit({attributes, setAttributes}) {
 	}
 
 	const slides = posts.map((post, index) => {
+		const overlayBgOpecityfloat = overlayBgOpecity/100;
+		console.log("Gradient 2 : " + overlayBgOpecityfloat);
 		return (
 		<React.Fragment>	
-			<SwiperSlide key={ `slide-${index}` }>
-				<img src={ post.episode_featured_image } alt="" />
-				<div className='txp-post-title'>{ post.title.rendered }</div>
-				<a className='txp-post-link' href={post.link} rel="nofollow">{ __("View Post", "txp-slider") }</a>
-				<div className='txp-publish-date'>{ fixDate(post.date) }</div>
+			<SwiperSlide key={ `slide-${index}` } style={ { backgroundImage: "url("+post.episode_featured_image+")" } } >
+				<div className='txp-slider-gradient-overlay' style={ { backgroundImage: `${gradient}`, opacity: `${overlayBgOpecityfloat}` } } ></div>
+				<div className="txp-slider-content-wrap">
+					<h2 className='txp-post-title'>{ post.title.rendered }</h2>
+					<div className='txp-publish-date'>{ fixDate(post.date) }</div>
+					<a className='txp-post-link' href={post.link} rel="nofollow">{ __("View Post", "txp-slider") }</a>
+				</div>
+				
 			</SwiperSlide>
 		</React.Fragment> 
 		);
-		//{ console.log("Title : " + post.title.rendered + " : " + post.episode_featured_image + "Link : " + post.link + " Date : " + fixDate(post.date) ) }
 	})
 
 	return(	
@@ -140,11 +140,6 @@ export default function Edit({attributes, setAttributes}) {
 							value: textColor,
 							onChange: onChangeTextColor,
 							label: __("Text Color", "txp-slider")
-						},
-						{
-							value: backgroundColor,
-							onChange: onChangeBackgroundColor,
-							label: __("Background Color", "txp-slider")							
 						}
 					] }
 				/>
@@ -152,6 +147,43 @@ export default function Edit({attributes, setAttributes}) {
 					title={ __("Link Settings", "txp-slider") }
 					initialOpen= {true}
 				>
+					<PanelRow>
+						<fieldset>
+							<GradientPicker
+								label={ __("Background Overlay", "txp-slider") } 
+								value={ gradient }
+								onChange={ onChangeGradient }
+								gradients={ [
+									{
+										name: 'JShine',
+										gradient:
+											'linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)',
+										slug: 'jshine',
+									},
+									{
+										name: 'Moonlit Asteroid',
+										gradient:
+											'linear-gradient(135deg,#0F2027 0%, #203A43 0%, #2c5364 100%)',
+										slug: 'moonlit-asteroid',
+									},
+									{
+										name: 'Rastafarie',
+										gradient:
+											'linear-gradient(135deg,#1E9600 0%, #FFF200 0%, #FF0000 100%)',
+										slug: 'rastafari',
+									},
+								] }
+							/>
+							<RangeControl
+								label="Background Opecity"
+								value={ overlayBgOpecity }
+								onChange={ onChangesoverlayBgOpecity } 
+								//onChange={ ( newOverlayBgOpecity ) => setAttributes( { overlayBgOpecity : newOverlayBgOpecity } ) }
+								min={ 1 }
+								max={ 100 }
+							/>
+						</fieldset>
+					</PanelRow>
 					<PanelRow>
 						<fieldset>
 							<TextControl
@@ -172,21 +204,7 @@ export default function Edit({attributes, setAttributes}) {
 				/>
 			</BlockControls>
 			<div className='txp-blockwrap' {...blockProps} >
-					<MediaPlaceholder
-						onSelect = {
-							( el ) => {
-								setAttributes( { theImage: el.url } );
-								console.log("URL is : " + el.url);
-							}
-						}
-						allowedTypes = { [ 'image' ] }
-						multiple = { false }
-						labels = { { title: 'The Image' } }
-						mediaPreview = { mediaPreview }
-					>
-					</MediaPlaceholder>	
 					<Swiper 
-						id='main' 
 						modules={[Navigation, Pagination, Scrollbar, A11y]}
 						navigation
 						pagination={{ clickable: true }}

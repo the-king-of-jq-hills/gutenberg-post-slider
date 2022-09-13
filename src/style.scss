@@ -8,7 +8,6 @@
 .wp-block-create-block-txp-slider {
 	background-color: #969696;
 	color: #323232;
-	padding: 2px;
 }
 
 .txp-dynamic-align-center {
@@ -19,4 +18,69 @@
 }
 .txp-dynamic-align-right {
 	text-align: right;
+}
+
+.swiper-slide {
+
+	aspect-ratio: 16/9;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+
+	.txp-slider-gradient-overlay {
+		display: block;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index: 101;
+		opacity: .48;
+	}	
+	.txp-slider-content-wrap {
+		display: block;
+		position: relative;
+		z-index: 102;
+		margin: 0px auto;
+		padding: 0px 48px;
+		text-align: center;
+
+		top: 45%;
+		transform: translateY(-50%);	
+
+		h2.txp-post-title {
+			font-size: 1.6em;
+			color: #FFF;
+			margin-top: 12px;
+			margin-bottom: 12px;
+		}
+		
+		.txp-publish-date {
+			color: #FFF;
+			font-size: 1em;
+		}
+		a.txp-post-link {
+			padding: 12px 24px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+			display: inline-table;
+			text-decoration: none;
+			color: #FFF;
+			background-color: #323232;
+			margin-top: 12px;
+
+			&:hover {
+				text-decoration: none;;
+			}
+			&:visited {
+				text-decoration: none;
+			}			
+			.txp-publish-date {
+				color: #FFF;
+			}
+		}
+			
+			
+	}
 }

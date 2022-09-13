@@ -14,34 +14,14 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"styles": [
-		{
-			"name": "txp-default",
-			"label": "Default",
-			"isDefault": true
-		},
-		{
-			"name": "txp-outline",
-			"label": "Outline"
-		},
-		{
-			"name": "txp-rounded",
-			"label": "Rounded"
-		}
-	],	
 	"attributes": {
-		"content": {
-			"type": "string",
-			"source": "html",
-			"selector": "p"
-		},
 		"align": {
 			"type": "string",
 			"default": "none"
 		},
-		"backgroundColor": {
+		"gradient": {
 			"type": "string",
-			"default": "#f2a42e"
+			"default": "linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"
 		},		
 		"textColor": {
 			"type": "string",
@@ -51,17 +31,19 @@
 			"type": "string",
 			"default": ""
 		},
-		"theImage": {
-			"type":"string",
-			"default": ""
+		"numberofPosts": {
+			"type": "number",
+			"default": 2
+		},
+		"overlayBgOpecity": {
+			"type": "number",
+			"default": 48
 		}
 
 	},
 	"example": { "attributes": { 
-		"content": "Sample Text For Sample Block!", 
 		"align": "center", 
-		"affiliateLink": "https://www.google.com/",	
-		"linkLabel": "Exaple Link" 	
+		"siteURL": "https://www.google.com/"
 		}
 	}
 }

@@ -19,9 +19,9 @@
       "type": "string",
       "default": "none"
     },
-    "gradient": {
+    "backgroundColor": {
       "type": "string",
-      "default": "linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"
+      "default": "#f2a42e"
     },
     "textColor": {
       "type": "string",
@@ -30,14 +30,6 @@
     "siteURL": {
       "type": "string",
       "default": ""
-    },
-    "numberofPosts": {
-      "type": "number",
-      "default": 2
-    },
-    "overlayBgOpecity": {
-      "type": "number",
-      "default": 48
     }
   },
   "example": {
