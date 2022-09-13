@@ -50,7 +50,8 @@
 		transform: translateY(-50%);	
 
 		h2.txp-post-title {
-			font-size: 1.6em;
+			font-size: 2.4em;
+			font-size: 2vw;
 			color: #FFF;
 			margin-top: 12px;
 			margin-bottom: 12px;
@@ -67,11 +68,12 @@
 			display: inline-table;
 			text-decoration: none;
 			color: #FFF;
-			background-color: #323232;
+			background-color: #484848;
 			margin-top: 12px;
 
 			&:hover {
 				text-decoration: none;;
+				background-color: #323232;
 			}
 			&:visited {
 				text-decoration: none;
@@ -83,4 +85,14 @@
 			
 			
 	}
+}
+
+.txp-dynamic-align-left .txp-slider-content-wrap {
+	text-align: left;
+}
+.txp-dynamic-align-center .txp-slider-content-wrap {
+	text-align: center;
+}
+.txp-dynamic-align-right .txp-slider-content-wrap {
+	text-align: right;
 }

@@ -79,22 +79,16 @@ function Edit(_ref) {
     gradient,
     textColor,
     siteURL,
-    overlayBgOpecity
+    overlayBgOpecity,
+    numberOfPosts
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.useBlockProps)({
     className: 'txp-dynamic-align-' + align
   });
 
   const onChangeAlign = newAlign => {
-    console.log(newAlign);
     setAttributes({
       align: newAlign === undefined ? 'none' : newAlign
-    });
-  };
-
-  const onChangeBackgroundColor = newBackgroundColor => {
-    setAttributes({
-      backgroundColor: newBackgroundColor
     });
   };
 
@@ -107,6 +101,12 @@ function Edit(_ref) {
   const onChangesiteURL = newsiteURL => {
     setAttributes({
       siteURL: newsiteURL
+    });
+  };
+
+  const onChangenumberOfPosts = newnumberOfPosts => {
+    setAttributes({
+      numberOfPosts: newnumberOfPosts
     });
   };
 
@@ -126,7 +126,9 @@ function Edit(_ref) {
   const [posts, setPosts] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     async function loadPosts() {
-      const response = await fetch('https://wptavern.com/wp-json/wp/v2/posts?per_page=2');
+      const blogURL = siteURL + "wp-json/wp/v2/posts?per_page=" + numberOfPosts;
+      console.log(blogURL + " : " + numberOfPosts);
+      const response = await fetch(blogURL);
 
       if (!response.ok) {
         // oups! something went wrong
@@ -152,7 +154,6 @@ function Edit(_ref) {
 
   const slides = posts.map((post, index) => {
     const overlayBgOpecityfloat = overlayBgOpecity / 100;
-    console.log("Gradient 2 : " + overlayBgOpecityfloat);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(React.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.SwiperSlide, {
       key: `slide-${index}`,
       style: {
@@ -173,18 +174,11 @@ function Edit(_ref) {
     }, fixDate(post.date)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
       className: "txp-post-link",
       href: post.link,
-      rel: "nofollow"
+      rel: "nofollow",
+      target: "_blank"
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("View Post", "txp-slider")))));
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.PanelColorSettings, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Color Settings', 'txp-slider'),
-    initialOpen: false,
-    colorSettings: [{
-      value: textColor,
-      onChange: onChangeTextColor,
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Text Color", "txp-slider")
-    }]
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelBody, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Link Settings", "txp-slider"),
     initialOpen: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("fieldset", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.GradientPicker, {
@@ -212,16 +206,27 @@ function Edit(_ref) {
     min: 1,
     max: 100
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("fieldset", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.TextControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter Link URL", "txp-slider"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter Blog URL", "txp-slider"),
     value: siteURL,
     onChange: onChangesiteURL,
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Add Your URL", "txp-slider")
-  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.BlockControls, {
-    group: "block"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.AlignmentControl, {
-    value: align,
-    onChange: onChangeAlign
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
+    label: "Number of Posts",
+    value: numberOfPosts,
+    onChange: onChangenumberOfPosts,
+    min: 1,
+    max: 10
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadioGroup, {
+    label: "Text Align",
+    onChange: onChangeAlign,
+    checked: align
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadio, {
+    value: "left"
+  }, "Left"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadio, {
+    value: "center"
+  }, "Center"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadio, {
+    value: "right"
+  }, "Right")))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
     className: "txp-blockwrap"
   }, blockProps), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(swiper_react__WEBPACK_IMPORTED_MODULE_4__.Swiper, {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_5__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_5__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_5__.Scrollbar, swiper__WEBPACK_IMPORTED_MODULE_5__.A11y],
@@ -231,7 +236,9 @@ function Edit(_ref) {
     },
     scrollbar: {
       draggable: true
-    }
+    } //slidesPerView={3}
+    //spaceBetween= {32}
+
   }, slides)));
 }
 
@@ -14542,7 +14549,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/txp-slider","version":"0.1.0","title":"Txp Slider","category":"media","icon":"cover-image","description":"Post Featured Image Slider Block","supports":{"html":false},"textdomain":"txp-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"align":{"type":"string","default":"none"},"gradient":{"type":"string","default":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"},"textColor":{"type":"string","default":"#FFFFFF"},"siteURL":{"type":"string","default":""},"numberofPosts":{"type":"number","default":2},"overlayBgOpecity":{"type":"number","default":48}},"example":{"attributes":{"align":"center","siteURL":"https://www.google.com/"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/txp-slider","version":"0.1.0","title":"Txp Slider","category":"media","icon":"cover-image","description":"Post Featured Image Slider Block","supports":{"html":false},"textdomain":"txp-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"align":{"type":"string","default":"center"},"gradient":{"type":"string","default":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"},"textColor":{"type":"string","default":"#FFFFFF"},"siteURL":{"type":"string","default":"https://wptavern.com/"},"numberOfPosts":{"type":"number","default":2},"overlayBgOpecity":{"type":"number","default":48}},"example":{"attributes":{"align":"center","siteURL":"https://www.google.com/"}}}');
 
 /***/ })
 

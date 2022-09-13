@@ -31,7 +31,9 @@ import {
 	PanelBody,
 	PanelRow,
 	GradientPicker,
-	RangeControl
+	RangeControl,
+    __experimentalRadio as Radio,
+    __experimentalRadioGroup as RadioGroup,
 } from '@wordpress/components';
 
 
@@ -53,20 +55,16 @@ import './editor.scss';
  */
 export default function Edit({attributes, setAttributes}) {
 
-	const { align, gradient, textColor, siteURL, overlayBgOpecity } = attributes;
+	const { align, gradient, textColor, siteURL, overlayBgOpecity, numberOfPosts } = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'txp-dynamic-align-'+align,		
 	});
 	
 	const onChangeAlign = ( newAlign ) => {
-		console.log(newAlign);
 		setAttributes( { 
 			align: newAlign === undefined ? 'none' : newAlign, 
 		} )
-	}
-	const onChangeBackgroundColor = ( newBackgroundColor ) => {
-		setAttributes( { backgroundColor: newBackgroundColor } )
 	}
 	const onChangeTextColor = ( newTextColor ) => {
 		setAttributes( { textColor: newTextColor } )
@@ -74,6 +72,10 @@ export default function Edit({attributes, setAttributes}) {
 
 	const onChangesiteURL = ( newsiteURL ) => {
 		setAttributes( { siteURL : newsiteURL } )
+	}
+
+	const onChangenumberOfPosts = ( newnumberOfPosts ) => {
+		setAttributes( { numberOfPosts : newnumberOfPosts } )
 	}
 
 	const onChangesoverlayBgOpecity = ( newoverlayBgOpecity ) => {
@@ -87,7 +89,9 @@ export default function Edit({attributes, setAttributes}) {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         async function loadPosts() {
-            const response = await fetch('https://wptavern.com/wp-json/wp/v2/posts?per_page=2');
+			const blogURL = siteURL+"wp-json/wp/v2/posts?per_page="+numberOfPosts;
+			console.log(blogURL + " : " + numberOfPosts );
+            const response = await fetch(blogURL);
             if(!response.ok) {
                 // oups! something went wrong
                 return;
@@ -112,7 +116,6 @@ export default function Edit({attributes, setAttributes}) {
 
 	const slides = posts.map((post, index) => {
 		const overlayBgOpecityfloat = overlayBgOpecity/100;
-		console.log("Gradient 2 : " + overlayBgOpecityfloat);
 		return (
 		<React.Fragment>	
 			<SwiperSlide key={ `slide-${index}` } style={ { backgroundImage: "url("+post.episode_featured_image+")" } } >
@@ -120,7 +123,7 @@ export default function Edit({attributes, setAttributes}) {
 				<div className="txp-slider-content-wrap">
 					<h2 className='txp-post-title'>{ post.title.rendered }</h2>
 					<div className='txp-publish-date'>{ fixDate(post.date) }</div>
-					<a className='txp-post-link' href={post.link} rel="nofollow">{ __("View Post", "txp-slider") }</a>
+					<a className='txp-post-link' href={post.link} rel="nofollow" target="_blank">{ __("View Post", "txp-slider") }</a>
 				</div>
 				
 			</SwiperSlide>
@@ -132,17 +135,6 @@ export default function Edit({attributes, setAttributes}) {
 		
 		<>
 			<InspectorControls>
-				<PanelColorSettings
-					title={ __('Color Settings', 'txp-slider') }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: textColor,
-							onChange: onChangeTextColor,
-							label: __("Text Color", "txp-slider")
-						}
-					] }
-				/>
 				<PanelBody 
 					title={ __("Link Settings", "txp-slider") }
 					initialOpen= {true}
@@ -187,28 +179,36 @@ export default function Edit({attributes, setAttributes}) {
 					<PanelRow>
 						<fieldset>
 							<TextControl
-								label={ __("Enter Link URL", "txp-slider") } 
+								label={ __("Enter Blog URL", "txp-slider") } 
 								value={ siteURL } 
 								onChange={ onChangesiteURL } 
 								help={ __("Add Your URL", "txp-slider") }
 							>
 							</TextControl>
+							<RangeControl
+								label="Number of Posts"
+								value={ numberOfPosts }
+								onChange={ onChangenumberOfPosts } 								
+								min={ 1 }
+								max={ 10 }
+							/>
+							<RadioGroup label="Text Align" onChange={ onChangeAlign } checked={ align }>
+								<Radio value="left">Left</Radio>
+								<Radio value="center">Center</Radio>
+								<Radio value="right">Right</Radio>
+							</RadioGroup>					
 						</fieldset>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-			<BlockControls group="block">
-				<AlignmentControl
-					value={ align }
-					onChange={ onChangeAlign }
-				/>
-			</BlockControls>
 			<div className='txp-blockwrap' {...blockProps} >
 					<Swiper 
 						modules={[Navigation, Pagination, Scrollbar, A11y]}
 						navigation
 						pagination={{ clickable: true }}
 						scrollbar={{ draggable: true }}
+						//slidesPerView={3}
+						//spaceBetween= {32}
 					>
 						{slides}	
 					</Swiper>

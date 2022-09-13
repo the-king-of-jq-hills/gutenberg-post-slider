@@ -17,7 +17,7 @@
   "attributes": {
     "align": {
       "type": "string",
-      "default": "none"
+      "default": "center"
     },
     "gradient": {
       "type": "string",
@@ -29,9 +29,9 @@
     },
     "siteURL": {
       "type": "string",
-      "default": ""
+      "default": "https://wptavern.com/"
     },
-    "numberofPosts": {
+    "numberOfPosts": {
       "type": "number",
       "default": 2
     },

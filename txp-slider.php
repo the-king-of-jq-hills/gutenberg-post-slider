@@ -31,6 +31,7 @@ function txp_slider_render_front_slider( $attr ) {
 
 	$output = "";
 	$output .= "<h1>The Contents Comes Here</h1>";
+	//print_r($attr);
 
 	return $output ?? '<strong>Sorry. No posts matching your criteria!</strong>';
 }
