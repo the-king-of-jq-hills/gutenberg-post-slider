@@ -84,13 +84,14 @@ function txp_swiper_init_wp_footer() {
 			var swiper = new Swiper(".txp-slider-swiper", {
 				pagination: {
 				el: ".swiper-pagination",
-				type: "fraction",
+				clickable: true,
 				},
 				navigation: {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
-					//el: ".swiper-pagination",
 				},
+				//slidesPerView: 3,
+        		//spaceBetween: 32,
 			});
         </script>
     <?php
