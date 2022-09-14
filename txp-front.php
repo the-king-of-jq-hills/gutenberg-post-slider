@@ -46,7 +46,7 @@ function txp_slider_render_front_slider( $attr ) {
 
 			$slides .= '<h2 class="txp-post-title">' . esc_html($post->title->rendered) . '</h2>';
 			$slides .= '<div class="txp-publish-date">' . esc_attr(date( 'F d, Y', strtotime( $post->modified ))) . '</div>';
-			$slides .= '<a class="txp-post-link" href=' . esc_url($post->link) . ' rel="nofollow" target="_blank">' . esc_attr__("View Post", "txp-slider") . '</a>';
+			$slides .= '<a class="txp-post-link" href=' . esc_url($post->link) . ' rel="nofollow" target="_blank">' . esc_html__("View Post", "txp-slider") . '</a>';
 
 			$slides .= '</div>';
 
@@ -62,6 +62,11 @@ function txp_slider_render_front_slider( $attr ) {
 	$output .= $slides;
 	
 	$output .= '</div>';
+
+	$output .= '<div class="swiper-button-next"></div>';
+	$output .= '<div class="swiper-button-prev"></div>';
+	$output .= '<div class="swiper-pagination"></div>';
+
 	$output .= '</div>';
 	$output .= '</div>';
 
@@ -69,4 +74,33 @@ function txp_slider_render_front_slider( $attr ) {
 	//print_r($attr);
 
 	return $output ?? '<strong>Sorry. No posts matching your criteria!</strong>';
+}
+
+
+add_action('wp_footer', 'txp_swiper_init_wp_footer');
+function txp_swiper_init_wp_footer() {
+    ?>
+        <script>
+			var swiper = new Swiper(".txp-slider-swiper", {
+				pagination: {
+				el: ".swiper-pagination",
+				type: "fraction",
+				},
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+					//el: ".swiper-pagination",
+				},
+			});
+        </script>
+    <?php
+}
+
+add_action( 'wp_enqueue_scripts', 'txp_swiper_assets' );
+function txp_swiper_assets() {
+	wp_register_style( 'swiper-style', 'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css' );
+	wp_enqueue_style('swiper-style');
+
+	wp_register_script( 'swiperjs', 'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js', null, null, false );
+	wp_enqueue_script('swiperjs');
 }
