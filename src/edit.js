@@ -136,7 +136,7 @@ export default function Edit({attributes, setAttributes}) {
 		<>
 			<InspectorControls>
 				<PanelBody 
-					title={ __("Link Settings", "txp-slider") }
+					title={ __("Slider Settings", "txp-slider") }
 					initialOpen= {true}
 				>
 					<PanelRow>

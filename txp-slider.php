@@ -27,11 +27,5 @@ function create_block_txp_slider_block_init() {
 }
 add_action( 'init', 'create_block_txp_slider_block_init' );
 
-function txp_slider_render_front_slider( $attr ) {
 
-	$output = "";
-	$output .= "<h1>The Contents Comes Here</h1>";
-	//print_r($attr);
-
-	return $output ?? '<strong>Sorry. No posts matching your criteria!</strong>';
-}
+require plugin_dir_path( __FILE__ ) . './txp-front.php';
