@@ -55,7 +55,7 @@ function txp_slider_render_front_slider( $attr ) {
 
 	}	
 
-	$output .= '<div class="txp-slider-wrap">';
+	$output .= '<div class="txp-slider-wrap txp-dynamic-align-'. $attr['align'] .'" >';
 	$output .= '<div class="swiper txp-slider-swiper">';
 	$output .= '<div class="swiper-wrapper">';
 
