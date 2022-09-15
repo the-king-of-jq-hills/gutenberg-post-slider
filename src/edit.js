@@ -55,19 +55,24 @@ import './editor.scss';
  */
 export default function Edit({attributes, setAttributes}) {
 
-	const { align, gradient, textColor, siteURL, overlayBgOpecity, numberOfPosts } = attributes;
+	const { align, gradient, siteURL, overlayBgOpecity, numberOfPosts, numberOfColumns } = attributes;
+
+	let txpColumnStat;
+
+	if ( numberOfColumns > 1 ) {
+		txpColumnStat = "txp-multicolumn";
+	} else {
+		txpColumnStat = "txp-singlecolumn"
+	}
 
 	const blockProps = useBlockProps({
-		className: 'txp-dynamic-align-'+align,		
+		className: txpColumnStat+' txp-dynamic-align-'+align,
 	});
 	
 	const onChangeAlign = ( newAlign ) => {
 		setAttributes( { 
 			align: newAlign === undefined ? 'none' : newAlign, 
 		} )
-	}
-	const onChangeTextColor = ( newTextColor ) => {
-		setAttributes( { textColor: newTextColor } )
 	}
 
 	const onChangesiteURL = ( newsiteURL ) => {
@@ -76,6 +81,10 @@ export default function Edit({attributes, setAttributes}) {
 
 	const onChangenumberOfPosts = ( newnumberOfPosts ) => {
 		setAttributes( { numberOfPosts : newnumberOfPosts } )
+	}
+
+	const onChangenumberOfColumns = ( newnumberOfColumns ) => {
+		setAttributes( { numberOfColumns : newnumberOfColumns } )
 	}
 
 	const onChangesoverlayBgOpecity = ( newoverlayBgOpecity ) => {
@@ -192,6 +201,13 @@ export default function Edit({attributes, setAttributes}) {
 								min={ 1 }
 								max={ 10 }
 							/>
+							<RangeControl
+								label="Number of Columns"
+								value={ numberOfColumns }
+								onChange={ onChangenumberOfColumns } 								
+								min={ 1 }
+								max={ 4 }
+							/>							
 							<RadioGroup label="Text Align" onChange={ onChangeAlign } checked={ align }>
 								<Radio value="left">Left</Radio>
 								<Radio value="center">Center</Radio>
@@ -207,10 +223,10 @@ export default function Edit({attributes, setAttributes}) {
 						navigation
 						pagination={{ clickable: true }}
 						scrollbar={{ draggable: true }}
-						//slidesPerView={3}
-						//spaceBetween= {32}
+						slidesPerView={numberOfColumns} 
+						spaceBetween= {32}
 					>
-						{slides}	
+						{slides}
 					</Swiper>
 			</div>		
 		</>

@@ -11,12 +11,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } 
 
+$txpcolumns = 1;
 
 function txp_slider_render_front_slider( $attr ) {
 
 	$posts = '';
 	$output = '';
 	$slides = '';
+	$columnclass = '';
+
+	global $txpcolumns;
+	$txpcolumns = $attr['numberOfColumns'];
 
 	$blog_url = $attr['siteURL']."wp-json/wp/v2/posts?per_page=".$attr['numberOfPosts'];
 
@@ -55,7 +60,14 @@ function txp_slider_render_front_slider( $attr ) {
 
 	}	
 
-	$output .= '<div class="txp-slider-wrap txp-dynamic-align-'. $attr['align'] .'" >';
+	if ( $txpcolumns > 1 )
+	{
+		$columnclass = "txp-multicolumn";
+	} else {
+		$columnclass = "txp-singlecolumn";
+	}
+
+	$output .= '<div class="txp-slider-wrap ' .$columnclass. ' txp-dynamic-align-'. $attr['align'] .'" >';
 	$output .= '<div class="swiper txp-slider-swiper">';
 	$output .= '<div class="swiper-wrapper">';
 
@@ -73,12 +85,13 @@ function txp_slider_render_front_slider( $attr ) {
 
 	//print_r($attr);
 
-	return $output ?? '<strong>Sorry. No posts matching your criteria!</strong>';
+	return $output ?? '<strong>Sorry! Could not find any post.</strong>';
 }
 
 
 add_action('wp_footer', 'txp_swiper_init_wp_footer');
 function txp_swiper_init_wp_footer() {
+	global $txpcolumns;
     ?>
         <script>
 			var swiper = new Swiper(".txp-slider-swiper", {
@@ -90,8 +103,8 @@ function txp_swiper_init_wp_footer() {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
 				},
-				//slidesPerView: 3,
-        		//spaceBetween: 32,
+				slidesPerView: <?php echo $txpcolumns; ?>,
+        		spaceBetween: 32,
 			});
         </script>
     <?php

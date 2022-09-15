@@ -8,8 +8,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-create-block-txp-slider {
-  background-color: #969696;
-  color: #323232;
+  background-color: #eaeaea;
 }
 
 .txp-dynamic-align-center {
@@ -24,8 +23,11 @@
   text-align: right;
 }
 
-.swiper-slide {
+.swiper-wrapper {
   aspect-ratio: 16/9;
+}
+
+.swiper-slide {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -48,12 +50,8 @@
   margin: 0px auto;
   padding: 0px 48px;
   text-align: center;
-  top: 45%;
-  transform: translateY(-50%);
 }
 .swiper-slide .txp-slider-content-wrap h2.txp-post-title {
-  font-size: 2.4em;
-  font-size: 2vw;
   color: #FFF;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -68,12 +66,12 @@
   display: inline-table;
   text-decoration: none;
   color: #FFF;
-  background-color: #484848;
+  background-color: rgba(64, 64, 64, 0.88);
   margin-top: 12px;
 }
 .swiper-slide .txp-slider-content-wrap a.txp-post-link:hover {
   text-decoration: none;
-  background-color: #323232;
+  background-color: rgba(32, 32, 32, 0.96);
 }
 .swiper-slide .txp-slider-content-wrap a.txp-post-link:visited {
   text-decoration: none;
@@ -92,6 +90,25 @@
 
 .txp-dynamic-align-right .txp-slider-content-wrap {
   text-align: right;
+}
+
+.txp-slider-content-wrap {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h2.txp-post-title {
+  line-height: 1em;
+  font-size: 2.4em;
+  font-size: 2vw;
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s;
+}
+
+.swiper-slide-active h2.txp-post-title {
+  margin-top: 12px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

@@ -77,24 +77,26 @@ function Edit(_ref) {
   const {
     align,
     gradient,
-    textColor,
     siteURL,
     overlayBgOpecity,
-    numberOfPosts
+    numberOfPosts,
+    numberOfColumns
   } = attributes;
+  let txpColumnStat;
+
+  if (numberOfColumns > 1) {
+    txpColumnStat = "txp-multicolumn";
+  } else {
+    txpColumnStat = "txp-singlecolumn";
+  }
+
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.useBlockProps)({
-    className: 'txp-dynamic-align-' + align
+    className: txpColumnStat + ' txp-dynamic-align-' + align
   });
 
   const onChangeAlign = newAlign => {
     setAttributes({
       align: newAlign === undefined ? 'none' : newAlign
-    });
-  };
-
-  const onChangeTextColor = newTextColor => {
-    setAttributes({
-      textColor: newTextColor
     });
   };
 
@@ -107,6 +109,12 @@ function Edit(_ref) {
   const onChangenumberOfPosts = newnumberOfPosts => {
     setAttributes({
       numberOfPosts: newnumberOfPosts
+    });
+  };
+
+  const onChangenumberOfColumns = newnumberOfColumns => {
+    setAttributes({
+      numberOfColumns: newnumberOfColumns
     });
   };
 
@@ -216,6 +224,12 @@ function Edit(_ref) {
     onChange: onChangenumberOfPosts,
     min: 1,
     max: 10
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
+    label: "Number of Columns",
+    value: numberOfColumns,
+    onChange: onChangenumberOfColumns,
+    min: 1,
+    max: 4
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadioGroup, {
     label: "Text Align",
     onChange: onChangeAlign,
@@ -236,9 +250,9 @@ function Edit(_ref) {
     },
     scrollbar: {
       draggable: true
-    } //slidesPerView={3}
-    //spaceBetween= {32}
-
+    },
+    slidesPerView: numberOfColumns,
+    spaceBetween: 32
   }, slides)));
 }
 
@@ -14549,7 +14563,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/txp-slider","version":"0.1.0","title":"Txp Slider","category":"media","icon":"cover-image","description":"Post Featured Image Slider Block","supports":{"html":false},"textdomain":"txp-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"align":{"type":"string","default":"center"},"gradient":{"type":"string","default":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"},"textColor":{"type":"string","default":"#FFFFFF"},"siteURL":{"type":"string","default":"https://wptavern.com/"},"numberOfPosts":{"type":"number","default":2},"overlayBgOpecity":{"type":"number","default":48}},"example":{"attributes":{"align":"center","siteURL":"https://www.google.com/"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/txp-slider","version":"0.1.0","title":"Txp Slider","category":"media","icon":"cover-image","description":"Post Featured Image Slider Block","supports":{"html":false},"textdomain":"txp-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"align":{"type":"string","default":"center"},"gradient":{"type":"string","default":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"},"siteURL":{"type":"string","default":"https://wptavern.com/"},"numberOfPosts":{"type":"number","default":2},"numberOfColumns":{"type":"number","default":1},"overlayBgOpecity":{"type":"number","default":48}},"example":{"attributes":{"align":"center","siteURL":"https://www.google.com/"}}}');
 
 /***/ })
 
