@@ -117,7 +117,8 @@ function txp_swiper_init_wp_footer() {
 						slidesPerView: <?php echo $txpcolumns; ?>,
 						spaceBetween: 32,
 					},
-				},				
+				},
+				keyboard: true,			
 			});
         </script>
     <?php

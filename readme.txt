@@ -10,7 +10,7 @@ A customizable WordPress Slider/Carousel plugin
 
 == Description ==
 
-A responsive accessible slider/carousel using React and WP REST API.
+A responsive, accessible, keboard enabled slider/carousel using React and WP REST API.
 
 == Screenshots ==
 
