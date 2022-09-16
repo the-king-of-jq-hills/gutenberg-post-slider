@@ -150,8 +150,9 @@ export default function Edit({attributes, setAttributes}) {
 				>
 					<PanelRow>
 						<fieldset>
+							<div className='txp-custom-control-label'>{ __("Background Overlay Gradient", "txp-slider") }</div>
 							<GradientPicker
-								label={ __("Background Overlay", "txp-slider") } 
+								label={ __("Background Overlay Gradient", "txp-slider") } 
 								value={ gradient }
 								onChange={ onChangeGradient }
 								gradients={ [
@@ -176,7 +177,7 @@ export default function Edit({attributes, setAttributes}) {
 								] }
 							/>
 							<RangeControl
-								label="Background Opecity"
+								label="Background Overlay Opecity"
 								value={ overlayBgOpecity }
 								onChange={ onChangesoverlayBgOpecity } 
 								//onChange={ ( newOverlayBgOpecity ) => setAttributes( { overlayBgOpecity : newOverlayBgOpecity } ) }
@@ -191,7 +192,6 @@ export default function Edit({attributes, setAttributes}) {
 								label={ __("Enter Blog URL", "txp-slider") } 
 								value={ siteURL } 
 								onChange={ onChangesiteURL } 
-								help={ __("Add Your URL", "txp-slider") }
 							>
 							</TextControl>
 							<RangeControl
@@ -207,11 +207,12 @@ export default function Edit({attributes, setAttributes}) {
 								onChange={ onChangenumberOfColumns } 								
 								min={ 1 }
 								max={ 4 }
-							/>							
+							/>
+							<div className='txp-custom-control-label'>{ __("Align Content", "txp-slider") }</div>						
 							<RadioGroup label="Text Align" onChange={ onChangeAlign } checked={ align }>
-								<Radio value="left">Left</Radio>
-								<Radio value="center">Center</Radio>
-								<Radio value="right">Right</Radio>
+								<Radio value="left">{ __("Left", "txp-slider") }</Radio>
+								<Radio value="center">{ __("Center", "txp-slider") }</Radio>
+								<Radio value="right">{ __("Right", "txp-slider") }</Radio>
 							</RadioGroup>					
 						</fieldset>
 					</PanelRow>
