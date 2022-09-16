@@ -175,11 +175,11 @@ function Edit(_ref) {
       }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "txp-slider-content-wrap"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", {
-      className: "txp-post-title"
-    }, post.title.rendered), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       className: "txp-publish-date"
-    }, fixDate(post.date)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
+    }, fixDate(post.date)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h2", {
+      className: "txp-post-title"
+    }, post.title.rendered), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
       className: "txp-post-link",
       href: post.link,
       rel: "nofollow",

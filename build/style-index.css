@@ -58,10 +58,9 @@
 }
 .swiper-slide .txp-slider-content-wrap .txp-publish-date {
   color: #FFF;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 .swiper-slide .txp-slider-content-wrap a.txp-post-link {
-  padding: 12px 24px;
   border-radius: 4px;
   display: inline-table;
   text-decoration: none;
@@ -97,18 +96,51 @@
   transform: translateY(-50%);
 }
 
+.txp-multicolumn .txp-slider-content-wrap {
+  top: 100%;
+  transform: translateY(-116%);
+}
+
 h2.txp-post-title {
   line-height: 1em;
-  font-size: 2.4em;
-  font-size: 2vw;
+  font-size: 36px;
   transition-property: all;
   transition-duration: 0.4s;
   transition-timing-function: ease-in-out;
   transition-delay: 0.2s;
 }
 
+.txp-multicolumn h2.txp-post-title {
+  line-height: 1em;
+  font-size: 1.6em;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .swiper-slide-active h2.txp-post-title {
   margin-top: 12px;
+}
+
+a.txp-post-link {
+  padding: 12px 24px;
+}
+
+.txp-multicolumn a.txp-post-link {
+  padding: 8px 16px;
+}
+
+@media (max-width: 480px) {
+  h2.txp-post-title,
+.txp-multicolumn h2.txp-post-title {
+    line-height: 1em;
+    font-size: 1.4em;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  a.txp-post-link,
+.txp-multicolumn a.txp-post-link {
+    padding: 6px 12px;
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/

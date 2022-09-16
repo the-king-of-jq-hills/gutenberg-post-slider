@@ -49,8 +49,8 @@ function txp_slider_render_front_slider( $attr ) {
 
 			$slides .= '<div class="txp-slider-content-wrap">';
 
-			$slides .= '<h2 class="txp-post-title">' . esc_html($post->title->rendered) . '</h2>';
 			$slides .= '<div class="txp-publish-date">' . esc_attr(date( 'F d, Y', strtotime( $post->modified ))) . '</div>';
+			$slides .= '<h2 class="txp-post-title">' . esc_html($post->title->rendered) . '</h2>';
 			$slides .= '<a class="txp-post-link" href=' . esc_url($post->link) . ' rel="nofollow" target="_blank">' . esc_html__("View Post", "txp-slider") . '</a>';
 
 			$slides .= '</div>';
@@ -105,6 +105,18 @@ function txp_swiper_init_wp_footer() {
 				},
 				slidesPerView: <?php echo $txpcolumns; ?>,
         		spaceBetween: 32,
+				breakpoints: {
+					// when window width is >= 320px
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 32,
+					},
+					// when window width is >= 640px
+					768: {
+						slidesPerView: <?php echo $txpcolumns; ?>,
+						spaceBetween: 32,
+					},
+				},				
 			});
         </script>
     <?php

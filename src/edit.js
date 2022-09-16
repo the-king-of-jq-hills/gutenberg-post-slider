@@ -130,8 +130,8 @@ export default function Edit({attributes, setAttributes}) {
 			<SwiperSlide key={ `slide-${index}` } style={ { backgroundImage: "url("+post.episode_featured_image+")" } } >
 				<div className='txp-slider-gradient-overlay' style={ { backgroundImage: `${gradient}`, opacity: `${overlayBgOpecityfloat}` } } ></div>
 				<div className="txp-slider-content-wrap">
-					<h2 className='txp-post-title'>{ post.title.rendered }</h2>
 					<div className='txp-publish-date'>{ fixDate(post.date) }</div>
+					<h2 className='txp-post-title'>{ post.title.rendered }</h2>					
 					<a className='txp-post-link' href={post.link} rel="nofollow" target="_blank">{ __("View Post", "txp-slider") }</a>
 				</div>
 				
