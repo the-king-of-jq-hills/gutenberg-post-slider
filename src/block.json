@@ -15,7 +15,7 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"attributes": {
-		"align": {
+		"contentAlign": { 
 			"type": "string",
 			"default": "center"
 		},
@@ -42,8 +42,12 @@
 
 	},
 	"example": { "attributes": { 
-		"align": "center", 
-		"siteURL": "https://www.google.com/"
+		"contentAlign": "center", 
+			"siteURL": "https://wptavern.com/",
+			"gradient": "linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)",
+			"numberOfPosts": 3,
+			"numberOfColumns": 1, 
+			"overlayBgOpecity": 56						
 		}
 	}
 }

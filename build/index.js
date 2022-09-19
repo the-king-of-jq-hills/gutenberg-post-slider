@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -6,11 +6,11 @@
 /*!*********************!*\
   !*** ./src/edit.js ***!
   \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */   "default": function() { return /* binding */ Edit; }
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -75,7 +75,7 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
-    align,
+    contentAlign,
     gradient,
     siteURL,
     overlayBgOpecity,
@@ -91,12 +91,12 @@ function Edit(_ref) {
   }
 
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.useBlockProps)({
-    className: txpColumnStat + ' txp-dynamic-align-' + align
+    className: txpColumnStat + ' txp-dynamic-align-' + contentAlign
   });
 
-  const onChangeAlign = newAlign => {
+  const onChangeContentAlign = newContentAlign => {
     setAttributes({
-      align: newAlign === undefined ? 'none' : newAlign
+      contentAlign: newContentAlign
     });
   };
 
@@ -134,8 +134,8 @@ function Edit(_ref) {
   const [posts, setPosts] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     async function loadPosts() {
-      const blogURL = siteURL + "wp-json/wp/v2/posts?per_page=" + numberOfPosts;
-      console.log(blogURL + " : " + numberOfPosts);
+      const blogURL = siteURL + "wp-json/wp/v2/posts?per_page=" + numberOfPosts; //console.log(blogURL + " : " + numberOfPosts );
+
       const response = await fetch(blogURL);
 
       if (!response.ok) {
@@ -235,8 +235,8 @@ function Edit(_ref) {
     className: "txp-custom-control-label"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Align Content", "txp-slider")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadioGroup, {
     label: "Text Align",
-    onChange: onChangeAlign,
-    checked: align
+    onChange: onChangeContentAlign,
+    checked: contentAlign
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadio, {
     value: "left"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Left", "txp-slider")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.__experimentalRadio, {
@@ -265,7 +265,7 @@ function Edit(_ref) {
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
@@ -320,11 +320,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************!*\
   !*** ./src/save.js ***!
   \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */   "default": function() { return /* binding */ save; }
 /* harmony export */ });
 function save() {
   return null;
@@ -336,7 +336,7 @@ function save() {
 /*!*******************************************************************!*\
   !*** ./node_modules/swiper/modules/navigation/navigation.min.css ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -348,7 +348,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************!*\
   !*** ./node_modules/swiper/modules/pagination/pagination.min.css ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -360,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************!*\
   !*** ./node_modules/swiper/swiper.min.css ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -372,7 +372,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************!*\
   !*** ./src/editor.scss ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -384,7 +384,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./src/style.scss ***!
   \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -396,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** external "React" ***!
   \************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["React"];
 
@@ -406,7 +406,7 @@ module.exports = window["React"];
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
   \*************************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["blockEditor"];
 
@@ -416,7 +416,7 @@ module.exports = window["wp"]["blockEditor"];
 /*!********************************!*\
   !*** external ["wp","blocks"] ***!
   \********************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["blocks"];
 
@@ -426,7 +426,7 @@ module.exports = window["wp"]["blocks"];
 /*!************************************!*\
   !*** external ["wp","components"] ***!
   \************************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["components"];
 
@@ -436,7 +436,7 @@ module.exports = window["wp"]["components"];
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
   \*********************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["element"];
 
@@ -446,7 +446,7 @@ module.exports = window["wp"]["element"];
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
   \******************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["i18n"];
 
@@ -456,11 +456,11 @@ module.exports = window["wp"]["i18n"];
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ _extends)
+/* harmony export */   "default": function() { return /* binding */ _extends; }
 /* harmony export */ });
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -485,95 +485,94 @@ function _extends() {
 /*!***************************************!*\
   !*** ./node_modules/dom7/dom7.esm.js ***!
   \***************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "$": () => (/* binding */ $),
-/* harmony export */   "add": () => (/* binding */ add),
-/* harmony export */   "addClass": () => (/* binding */ addClass),
-/* harmony export */   "animate": () => (/* binding */ animate),
-/* harmony export */   "animationEnd": () => (/* binding */ animationEnd),
-/* harmony export */   "append": () => (/* binding */ append),
-/* harmony export */   "appendTo": () => (/* binding */ appendTo),
-/* harmony export */   "attr": () => (/* binding */ attr),
-/* harmony export */   "blur": () => (/* binding */ blur),
-/* harmony export */   "change": () => (/* binding */ change),
-/* harmony export */   "children": () => (/* binding */ children),
-/* harmony export */   "click": () => (/* binding */ click),
-/* harmony export */   "closest": () => (/* binding */ closest),
-/* harmony export */   "css": () => (/* binding */ css),
-/* harmony export */   "data": () => (/* binding */ data),
-/* harmony export */   "dataset": () => (/* binding */ dataset),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "detach": () => (/* binding */ detach),
-/* harmony export */   "each": () => (/* binding */ each),
-/* harmony export */   "empty": () => (/* binding */ empty),
-/* harmony export */   "eq": () => (/* binding */ eq),
-/* harmony export */   "filter": () => (/* binding */ filter),
-/* harmony export */   "find": () => (/* binding */ find),
-/* harmony export */   "focus": () => (/* binding */ focus),
-/* harmony export */   "focusin": () => (/* binding */ focusin),
-/* harmony export */   "focusout": () => (/* binding */ focusout),
-/* harmony export */   "hasClass": () => (/* binding */ hasClass),
-/* harmony export */   "height": () => (/* binding */ height),
-/* harmony export */   "hide": () => (/* binding */ hide),
-/* harmony export */   "html": () => (/* binding */ html),
-/* harmony export */   "index": () => (/* binding */ index),
-/* harmony export */   "insertAfter": () => (/* binding */ insertAfter),
-/* harmony export */   "insertBefore": () => (/* binding */ insertBefore),
-/* harmony export */   "is": () => (/* binding */ is),
-/* harmony export */   "keydown": () => (/* binding */ keydown),
-/* harmony export */   "keypress": () => (/* binding */ keypress),
-/* harmony export */   "keyup": () => (/* binding */ keyup),
-/* harmony export */   "mousedown": () => (/* binding */ mousedown),
-/* harmony export */   "mouseenter": () => (/* binding */ mouseenter),
-/* harmony export */   "mouseleave": () => (/* binding */ mouseleave),
-/* harmony export */   "mousemove": () => (/* binding */ mousemove),
-/* harmony export */   "mouseout": () => (/* binding */ mouseout),
-/* harmony export */   "mouseover": () => (/* binding */ mouseover),
-/* harmony export */   "mouseup": () => (/* binding */ mouseup),
-/* harmony export */   "next": () => (/* binding */ next),
-/* harmony export */   "nextAll": () => (/* binding */ nextAll),
-/* harmony export */   "off": () => (/* binding */ off),
-/* harmony export */   "offset": () => (/* binding */ offset),
-/* harmony export */   "on": () => (/* binding */ on),
-/* harmony export */   "once": () => (/* binding */ once),
-/* harmony export */   "outerHeight": () => (/* binding */ outerHeight),
-/* harmony export */   "outerWidth": () => (/* binding */ outerWidth),
-/* harmony export */   "parent": () => (/* binding */ parent),
-/* harmony export */   "parents": () => (/* binding */ parents),
-/* harmony export */   "prepend": () => (/* binding */ prepend),
-/* harmony export */   "prependTo": () => (/* binding */ prependTo),
-/* harmony export */   "prev": () => (/* binding */ prev),
-/* harmony export */   "prevAll": () => (/* binding */ prevAll),
-/* harmony export */   "prop": () => (/* binding */ prop),
-/* harmony export */   "remove": () => (/* binding */ remove),
-/* harmony export */   "removeAttr": () => (/* binding */ removeAttr),
-/* harmony export */   "removeClass": () => (/* binding */ removeClass),
-/* harmony export */   "removeData": () => (/* binding */ removeData),
-/* harmony export */   "resize": () => (/* binding */ resize),
-/* harmony export */   "scroll": () => (/* binding */ scroll),
-/* harmony export */   "scrollLeft": () => (/* binding */ scrollLeft),
-/* harmony export */   "scrollTo": () => (/* binding */ scrollTo),
-/* harmony export */   "scrollTop": () => (/* binding */ scrollTop),
-/* harmony export */   "show": () => (/* binding */ show),
-/* harmony export */   "siblings": () => (/* binding */ siblings),
-/* harmony export */   "stop": () => (/* binding */ stop),
-/* harmony export */   "styles": () => (/* binding */ styles),
-/* harmony export */   "submit": () => (/* binding */ submit),
-/* harmony export */   "text": () => (/* binding */ text),
-/* harmony export */   "toggleClass": () => (/* binding */ toggleClass),
-/* harmony export */   "touchend": () => (/* binding */ touchend),
-/* harmony export */   "touchmove": () => (/* binding */ touchmove),
-/* harmony export */   "touchstart": () => (/* binding */ touchstart),
-/* harmony export */   "transform": () => (/* binding */ transform),
-/* harmony export */   "transition": () => (/* binding */ transition),
-/* harmony export */   "transitionEnd": () => (/* binding */ transitionEnd),
-/* harmony export */   "trigger": () => (/* binding */ trigger),
-/* harmony export */   "val": () => (/* binding */ val),
-/* harmony export */   "value": () => (/* binding */ value),
-/* harmony export */   "width": () => (/* binding */ width)
+/* harmony export */   "$": function() { return /* binding */ $; },
+/* harmony export */   "add": function() { return /* binding */ add; },
+/* harmony export */   "addClass": function() { return /* binding */ addClass; },
+/* harmony export */   "animate": function() { return /* binding */ animate; },
+/* harmony export */   "animationEnd": function() { return /* binding */ animationEnd; },
+/* harmony export */   "append": function() { return /* binding */ append; },
+/* harmony export */   "appendTo": function() { return /* binding */ appendTo; },
+/* harmony export */   "attr": function() { return /* binding */ attr; },
+/* harmony export */   "blur": function() { return /* binding */ blur; },
+/* harmony export */   "change": function() { return /* binding */ change; },
+/* harmony export */   "children": function() { return /* binding */ children; },
+/* harmony export */   "click": function() { return /* binding */ click; },
+/* harmony export */   "closest": function() { return /* binding */ closest; },
+/* harmony export */   "css": function() { return /* binding */ css; },
+/* harmony export */   "data": function() { return /* binding */ data; },
+/* harmony export */   "dataset": function() { return /* binding */ dataset; },
+/* harmony export */   "detach": function() { return /* binding */ detach; },
+/* harmony export */   "each": function() { return /* binding */ each; },
+/* harmony export */   "empty": function() { return /* binding */ empty; },
+/* harmony export */   "eq": function() { return /* binding */ eq; },
+/* harmony export */   "filter": function() { return /* binding */ filter; },
+/* harmony export */   "find": function() { return /* binding */ find; },
+/* harmony export */   "focus": function() { return /* binding */ focus; },
+/* harmony export */   "focusin": function() { return /* binding */ focusin; },
+/* harmony export */   "focusout": function() { return /* binding */ focusout; },
+/* harmony export */   "hasClass": function() { return /* binding */ hasClass; },
+/* harmony export */   "height": function() { return /* binding */ height; },
+/* harmony export */   "hide": function() { return /* binding */ hide; },
+/* harmony export */   "html": function() { return /* binding */ html; },
+/* harmony export */   "index": function() { return /* binding */ index; },
+/* harmony export */   "insertAfter": function() { return /* binding */ insertAfter; },
+/* harmony export */   "insertBefore": function() { return /* binding */ insertBefore; },
+/* harmony export */   "is": function() { return /* binding */ is; },
+/* harmony export */   "keydown": function() { return /* binding */ keydown; },
+/* harmony export */   "keypress": function() { return /* binding */ keypress; },
+/* harmony export */   "keyup": function() { return /* binding */ keyup; },
+/* harmony export */   "mousedown": function() { return /* binding */ mousedown; },
+/* harmony export */   "mouseenter": function() { return /* binding */ mouseenter; },
+/* harmony export */   "mouseleave": function() { return /* binding */ mouseleave; },
+/* harmony export */   "mousemove": function() { return /* binding */ mousemove; },
+/* harmony export */   "mouseout": function() { return /* binding */ mouseout; },
+/* harmony export */   "mouseover": function() { return /* binding */ mouseover; },
+/* harmony export */   "mouseup": function() { return /* binding */ mouseup; },
+/* harmony export */   "next": function() { return /* binding */ next; },
+/* harmony export */   "nextAll": function() { return /* binding */ nextAll; },
+/* harmony export */   "off": function() { return /* binding */ off; },
+/* harmony export */   "offset": function() { return /* binding */ offset; },
+/* harmony export */   "on": function() { return /* binding */ on; },
+/* harmony export */   "once": function() { return /* binding */ once; },
+/* harmony export */   "outerHeight": function() { return /* binding */ outerHeight; },
+/* harmony export */   "outerWidth": function() { return /* binding */ outerWidth; },
+/* harmony export */   "parent": function() { return /* binding */ parent; },
+/* harmony export */   "parents": function() { return /* binding */ parents; },
+/* harmony export */   "prepend": function() { return /* binding */ prepend; },
+/* harmony export */   "prependTo": function() { return /* binding */ prependTo; },
+/* harmony export */   "prev": function() { return /* binding */ prev; },
+/* harmony export */   "prevAll": function() { return /* binding */ prevAll; },
+/* harmony export */   "prop": function() { return /* binding */ prop; },
+/* harmony export */   "remove": function() { return /* binding */ remove; },
+/* harmony export */   "removeAttr": function() { return /* binding */ removeAttr; },
+/* harmony export */   "removeClass": function() { return /* binding */ removeClass; },
+/* harmony export */   "removeData": function() { return /* binding */ removeData; },
+/* harmony export */   "resize": function() { return /* binding */ resize; },
+/* harmony export */   "scroll": function() { return /* binding */ scroll; },
+/* harmony export */   "scrollLeft": function() { return /* binding */ scrollLeft; },
+/* harmony export */   "scrollTo": function() { return /* binding */ scrollTo; },
+/* harmony export */   "scrollTop": function() { return /* binding */ scrollTop; },
+/* harmony export */   "show": function() { return /* binding */ show; },
+/* harmony export */   "siblings": function() { return /* binding */ siblings; },
+/* harmony export */   "stop": function() { return /* binding */ stop; },
+/* harmony export */   "styles": function() { return /* binding */ styles; },
+/* harmony export */   "submit": function() { return /* binding */ submit; },
+/* harmony export */   "text": function() { return /* binding */ text; },
+/* harmony export */   "toggleClass": function() { return /* binding */ toggleClass; },
+/* harmony export */   "touchend": function() { return /* binding */ touchend; },
+/* harmony export */   "touchmove": function() { return /* binding */ touchmove; },
+/* harmony export */   "touchstart": function() { return /* binding */ touchstart; },
+/* harmony export */   "transform": function() { return /* binding */ transform; },
+/* harmony export */   "transition": function() { return /* binding */ transition; },
+/* harmony export */   "transitionEnd": function() { return /* binding */ transitionEnd; },
+/* harmony export */   "trigger": function() { return /* binding */ trigger; },
+/* harmony export */   "val": function() { return /* binding */ val; },
+/* harmony export */   "value": function() { return /* binding */ value; },
+/* harmony export */   "width": function() { return /* binding */ width; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /**
@@ -2056,7 +2055,7 @@ const touchmove = shortcut('touchmove');
 const resize = shortcut('resize');
 const scroll = shortcut('scroll');
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ($);
+/* harmony default export */ __webpack_exports__["default"] = ($);
 
 
 
@@ -2066,15 +2065,15 @@ const scroll = shortcut('scroll');
 /*!***************************************************!*\
   !*** ./node_modules/ssr-window/ssr-window.esm.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "extend": () => (/* binding */ extend),
-/* harmony export */   "getDocument": () => (/* binding */ getDocument),
-/* harmony export */   "getWindow": () => (/* binding */ getWindow),
-/* harmony export */   "ssrDocument": () => (/* binding */ ssrDocument),
-/* harmony export */   "ssrWindow": () => (/* binding */ ssrWindow)
+/* harmony export */   "extend": function() { return /* binding */ extend; },
+/* harmony export */   "getDocument": function() { return /* binding */ getDocument; },
+/* harmony export */   "getWindow": function() { return /* binding */ getWindow; },
+/* harmony export */   "ssrDocument": function() { return /* binding */ ssrDocument; },
+/* harmony export */   "ssrWindow": function() { return /* binding */ ssrWindow; }
 /* harmony export */ });
 /**
  * SSR Window 4.0.2
@@ -2232,11 +2231,11 @@ function getWindow() {
 /*!*********************************************************************!*\
   !*** ./node_modules/swiper/components-shared/get-changed-params.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getChangedParams": () => (/* binding */ getChangedParams)
+/* harmony export */   "getChangedParams": function() { return /* binding */ getChangedParams; }
 /* harmony export */ });
 /* harmony import */ var _params_list_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./params-list.js */ "./node_modules/swiper/components-shared/params-list.js");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils.js */ "./node_modules/swiper/components-shared/utils.js");
@@ -2293,11 +2292,11 @@ function getChangedParams(swiperParams, oldParams, children, oldChildren, getKey
 /*!*************************************************************!*\
   !*** ./node_modules/swiper/components-shared/get-params.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getParams": () => (/* binding */ getParams)
+/* harmony export */   "getParams": function() { return /* binding */ getParams; }
 /* harmony export */ });
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils.js */ "./node_modules/swiper/components-shared/utils.js");
@@ -2370,11 +2369,11 @@ function getParams(obj, splitEvents) {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/components-shared/mount-swiper.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "mountSwiper": () => (/* binding */ mountSwiper)
+/* harmony export */   "mountSwiper": function() { return /* binding */ mountSwiper; }
 /* harmony export */ });
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./node_modules/swiper/components-shared/utils.js");
 
@@ -2417,11 +2416,11 @@ function mountSwiper(_ref, swiperParams) {
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/components-shared/params-list.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "paramsList": () => (/* binding */ paramsList)
+/* harmony export */   "paramsList": function() { return /* binding */ paramsList; }
 /* harmony export */ });
 /* underscore in name -> watch for changes */
 const paramsList = ['modules', 'init', '_direction', 'touchEventsTarget', 'initialSlide', '_speed', 'cssMode', 'updateOnWindowResize', 'resizeObserver', 'nested', 'focusableElements', '_enabled', '_width', '_height', 'preventInteractionOnTransition', 'userAgent', 'url', '_edgeSwipeDetection', '_edgeSwipeThreshold', '_freeMode', '_autoHeight', 'setWrapperSize', 'virtualTranslate', '_effect', 'breakpoints', '_spaceBetween', '_slidesPerView', 'maxBackfaceHiddenSlides', '_grid', '_slidesPerGroup', '_slidesPerGroupSkip', '_slidesPerGroupAuto', '_centeredSlides', '_centeredSlidesBounds', '_slidesOffsetBefore', '_slidesOffsetAfter', 'normalizeSlideIndex', '_centerInsufficientSlides', '_watchOverflow', 'roundLengths', 'touchRatio', 'touchAngle', 'simulateTouch', '_shortSwipes', '_longSwipes', 'longSwipesRatio', 'longSwipesMs', '_followFinger', 'allowTouchMove', '_threshold', 'touchMoveStopPropagation', 'touchStartPreventDefault', 'touchStartForcePreventDefault', 'touchReleaseOnEdges', 'uniqueNavElements', '_resistance', '_resistanceRatio', '_watchSlidesProgress', '_grabCursor', 'preventClicks', 'preventClicksPropagation', '_slideToClickedSlide', '_preloadImages', 'updateOnImagesReady', '_loop', '_loopAdditionalSlides', '_loopedSlides', '_loopedSlidesLimit', '_loopFillGroupWithBlank', 'loopPreventsSlide', '_rewind', '_allowSlidePrev', '_allowSlideNext', '_swipeHandler', '_noSwiping', 'noSwipingClass', 'noSwipingSelector', 'passiveListeners', 'containerModifierClass', 'slideClass', 'slideBlankClass', 'slideActiveClass', 'slideDuplicateActiveClass', 'slideVisibleClass', 'slideDuplicateClass', 'slideNextClass', 'slideDuplicateNextClass', 'slidePrevClass', 'slideDuplicatePrevClass', 'wrapperClass', 'runCallbacksOnInit', 'observer', 'observeParents', 'observeSlideChildren', // modules
@@ -2434,11 +2433,11 @@ const paramsList = ['modules', 'init', '_direction', 'touchEventsTarget', 'initi
 /*!*************************************************************************!*\
   !*** ./node_modules/swiper/components-shared/update-on-virtual-data.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "updateOnVirtualData": () => (/* binding */ updateOnVirtualData)
+/* harmony export */   "updateOnVirtualData": function() { return /* binding */ updateOnVirtualData; }
 /* harmony export */ });
 const updateOnVirtualData = swiper => {
   if (!swiper || swiper.destroyed || !swiper.params.virtual || swiper.params.virtual && !swiper.params.virtual.enabled) return;
@@ -2461,11 +2460,11 @@ const updateOnVirtualData = swiper => {
 /*!****************************************************************!*\
   !*** ./node_modules/swiper/components-shared/update-swiper.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "updateSwiper": () => (/* binding */ updateSwiper)
+/* harmony export */   "updateSwiper": function() { return /* binding */ updateSwiper; }
 /* harmony export */ });
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./node_modules/swiper/components-shared/utils.js");
 
@@ -2611,16 +2610,16 @@ function updateSwiper(_ref) {
 /*!********************************************************!*\
   !*** ./node_modules/swiper/components-shared/utils.js ***!
   \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "extend": () => (/* binding */ extend),
-/* harmony export */   "isObject": () => (/* binding */ isObject),
-/* harmony export */   "needsNavigation": () => (/* binding */ needsNavigation),
-/* harmony export */   "needsPagination": () => (/* binding */ needsPagination),
-/* harmony export */   "needsScrollbar": () => (/* binding */ needsScrollbar),
-/* harmony export */   "uniqueClasses": () => (/* binding */ uniqueClasses)
+/* harmony export */   "extend": function() { return /* binding */ extend; },
+/* harmony export */   "isObject": function() { return /* binding */ isObject; },
+/* harmony export */   "needsNavigation": function() { return /* binding */ needsNavigation; },
+/* harmony export */   "needsPagination": function() { return /* binding */ needsPagination; },
+/* harmony export */   "needsScrollbar": function() { return /* binding */ needsScrollbar; },
+/* harmony export */   "uniqueClasses": function() { return /* binding */ uniqueClasses; }
 /* harmony export */ });
 function isObject(o) {
   return typeof o === 'object' && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === 'Object';
@@ -2682,11 +2681,11 @@ function uniqueClasses(classNames) {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/breakpoints/getBreakpoint.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ getBreakpoint)
+/* harmony export */   "default": function() { return /* binding */ getBreakpoint; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -2740,17 +2739,14 @@ function getBreakpoint(breakpoints, base, containerEl) {
 /*!*******************************************************!*\
   !*** ./node_modules/swiper/core/breakpoints/index.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _setBreakpoint_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setBreakpoint.js */ "./node_modules/swiper/core/breakpoints/setBreakpoint.js");
 /* harmony import */ var _getBreakpoint_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getBreakpoint.js */ "./node_modules/swiper/core/breakpoints/getBreakpoint.js");
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   setBreakpoint: _setBreakpoint_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   getBreakpoint: _getBreakpoint_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
@@ -2761,11 +2757,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/breakpoints/setBreakpoint.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ setBreakpoint)
+/* harmony export */   "default": function() { return /* binding */ setBreakpoint; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -2860,12 +2856,9 @@ function setBreakpoint() {
 /*!**********************************************************!*\
   !*** ./node_modules/swiper/core/check-overflow/index.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 function checkOverflow() {
   const swiper = this;
   const {
@@ -2901,7 +2894,7 @@ function checkOverflow() {
   }
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   checkOverflow
 });
 
@@ -2911,11 +2904,11 @@ function checkOverflow() {
 /*!********************************************************!*\
   !*** ./node_modules/swiper/core/classes/addClasses.js ***!
   \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addClasses)
+/* harmony export */   "default": function() { return /* binding */ addClasses; }
 /* harmony export */ });
 function prepareClasses(entries, prefix) {
   const resultClasses = [];
@@ -2978,17 +2971,14 @@ function addClasses() {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/core/classes/index.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _addClasses_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addClasses.js */ "./node_modules/swiper/core/classes/addClasses.js");
 /* harmony import */ var _removeClasses_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./removeClasses.js */ "./node_modules/swiper/core/classes/removeClasses.js");
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   addClasses: _addClasses_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   removeClasses: _removeClasses_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
@@ -2999,11 +2989,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************!*\
   !*** ./node_modules/swiper/core/classes/removeClasses.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ removeClasses)
+/* harmony export */   "default": function() { return /* binding */ removeClasses; }
 /* harmony export */ });
 function removeClasses() {
   const swiper = this;
@@ -3021,12 +3011,9 @@ function removeClasses() {
 /*!******************************************!*\
   !*** ./node_modules/swiper/core/core.js ***!
   \******************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
@@ -3704,7 +3691,7 @@ Object.keys(prototypes).forEach(prototypeGroup => {
   });
 });
 Swiper.use([_modules_resize_resize_js__WEBPACK_IMPORTED_MODULE_6__["default"], _modules_observer_observer_js__WEBPACK_IMPORTED_MODULE_7__["default"]]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Swiper);
+/* harmony default export */ __webpack_exports__["default"] = (Swiper);
 
 /***/ }),
 
@@ -3712,13 +3699,10 @@ Swiper.use([_modules_resize_resize_js__WEBPACK_IMPORTED_MODULE_6__["default"], _
 /*!**********************************************!*\
   !*** ./node_modules/swiper/core/defaults.js ***!
   \**********************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   init: true,
   direction: 'horizontal',
   touchEventsTarget: 'wrapper',
@@ -3849,14 +3833,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./node_modules/swiper/core/events-emitter.js ***!
   \****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* eslint-disable no-underscore-dangle */
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   on(events, handler, priority) {
     const self = this;
     if (!self.eventsListeners || self.destroyed) return self;
@@ -3984,12 +3965,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./node_modules/swiper/core/events/index.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _onTouchStart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./onTouchStart.js */ "./node_modules/swiper/core/events/onTouchStart.js");
 /* harmony import */ var _onTouchMove_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onTouchMove.js */ "./node_modules/swiper/core/events/onTouchMove.js");
@@ -4090,7 +4068,7 @@ function detachEvents() {
   events(swiper, 'off');
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   attachEvents,
   detachEvents
 });
@@ -4101,11 +4079,11 @@ function detachEvents() {
 /*!****************************************************!*\
   !*** ./node_modules/swiper/core/events/onClick.js ***!
   \****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ onClick)
+/* harmony export */   "default": function() { return /* binding */ onClick; }
 /* harmony export */ });
 function onClick(e) {
   const swiper = this;
@@ -4127,11 +4105,11 @@ function onClick(e) {
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/core/events/onResize.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ onResize)
+/* harmony export */   "default": function() { return /* binding */ onResize; }
 /* harmony export */ });
 function onResize() {
   const swiper = this;
@@ -4183,11 +4161,11 @@ function onResize() {
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/core/events/onScroll.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ onScroll)
+/* harmony export */   "default": function() { return /* binding */ onScroll; }
 /* harmony export */ });
 function onScroll() {
   const swiper = this;
@@ -4231,11 +4209,11 @@ function onScroll() {
 /*!*******************************************************!*\
   !*** ./node_modules/swiper/core/events/onTouchEnd.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ onTouchEnd)
+/* harmony export */   "default": function() { return /* binding */ onTouchEnd; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -4406,11 +4384,11 @@ function onTouchEnd(event) {
 /*!********************************************************!*\
   !*** ./node_modules/swiper/core/events/onTouchMove.js ***!
   \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ onTouchMove)
+/* harmony export */   "default": function() { return /* binding */ onTouchMove; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -4645,11 +4623,11 @@ function onTouchMove(event) {
 /*!*********************************************************!*\
   !*** ./node_modules/swiper/core/events/onTouchStart.js ***!
   \*********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ onTouchStart)
+/* harmony export */   "default": function() { return /* binding */ onTouchStart; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -4795,17 +4773,14 @@ function onTouchStart(event) {
 /*!*******************************************************!*\
   !*** ./node_modules/swiper/core/grab-cursor/index.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _setGrabCursor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setGrabCursor.js */ "./node_modules/swiper/core/grab-cursor/setGrabCursor.js");
 /* harmony import */ var _unsetGrabCursor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./unsetGrabCursor.js */ "./node_modules/swiper/core/grab-cursor/unsetGrabCursor.js");
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   setGrabCursor: _setGrabCursor_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   unsetGrabCursor: _unsetGrabCursor_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
@@ -4816,11 +4791,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/grab-cursor/setGrabCursor.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ setGrabCursor)
+/* harmony export */   "default": function() { return /* binding */ setGrabCursor; }
 /* harmony export */ });
 function setGrabCursor(moving) {
   const swiper = this;
@@ -4836,11 +4811,11 @@ function setGrabCursor(moving) {
 /*!*****************************************************************!*\
   !*** ./node_modules/swiper/core/grab-cursor/unsetGrabCursor.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ unsetGrabCursor)
+/* harmony export */   "default": function() { return /* binding */ unsetGrabCursor; }
 /* harmony export */ });
 function unsetGrabCursor() {
   const swiper = this;
@@ -4858,17 +4833,14 @@ function unsetGrabCursor() {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/core/images/index.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _loadImage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loadImage.js */ "./node_modules/swiper/core/images/loadImage.js");
 /* harmony import */ var _preloadImages_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./preloadImages.js */ "./node_modules/swiper/core/images/preloadImages.js");
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   loadImage: _loadImage_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   preloadImages: _preloadImages_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
@@ -4879,11 +4851,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./node_modules/swiper/core/images/loadImage.js ***!
   \******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ loadImage)
+/* harmony export */   "default": function() { return /* binding */ loadImage; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -4931,11 +4903,11 @@ function loadImage(imageEl, src, srcset, sizes, checkForComplete, callback) {
 /*!**********************************************************!*\
   !*** ./node_modules/swiper/core/images/preloadImages.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ preloadImages)
+/* harmony export */   "default": function() { return /* binding */ preloadImages; }
 /* harmony export */ });
 function preloadImages() {
   const swiper = this;
@@ -4963,19 +4935,16 @@ function preloadImages() {
 /*!************************************************!*\
   !*** ./node_modules/swiper/core/loop/index.js ***!
   \************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _loopCreate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loopCreate.js */ "./node_modules/swiper/core/loop/loopCreate.js");
 /* harmony import */ var _loopFix_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loopFix.js */ "./node_modules/swiper/core/loop/loopFix.js");
 /* harmony import */ var _loopDestroy_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loopDestroy.js */ "./node_modules/swiper/core/loop/loopDestroy.js");
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   loopCreate: _loopCreate_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   loopFix: _loopFix_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   loopDestroy: _loopDestroy_js__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -4987,11 +4956,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/core/loop/loopCreate.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ loopCreate)
+/* harmony export */   "default": function() { return /* binding */ loopCreate; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -5057,11 +5026,11 @@ function loopCreate() {
 /*!******************************************************!*\
   !*** ./node_modules/swiper/core/loop/loopDestroy.js ***!
   \******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ loopDestroy)
+/* harmony export */   "default": function() { return /* binding */ loopDestroy; }
 /* harmony export */ });
 function loopDestroy() {
   const swiper = this;
@@ -5080,11 +5049,11 @@ function loopDestroy() {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/core/loop/loopFix.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ loopFix)
+/* harmony export */   "default": function() { return /* binding */ loopFix; }
 /* harmony export */ });
 function loopFix() {
   const swiper = this;
@@ -5134,11 +5103,11 @@ function loopFix() {
 /*!********************************************************!*\
   !*** ./node_modules/swiper/core/moduleExtendParams.js ***!
   \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ moduleExtendParams)
+/* harmony export */   "default": function() { return /* binding */ moduleExtendParams; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -5190,11 +5159,11 @@ function moduleExtendParams(params, allModulesParams) {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/modules/observer/observer.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Observer)
+/* harmony export */   "default": function() { return /* binding */ Observer; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -5284,11 +5253,11 @@ function Observer(_ref) {
 /*!***********************************************************!*\
   !*** ./node_modules/swiper/core/modules/resize/resize.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Resize)
+/* harmony export */   "default": function() { return /* binding */ Resize; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -5375,12 +5344,9 @@ function Resize(_ref) {
 /*!*************************************************!*\
   !*** ./node_modules/swiper/core/slide/index.js ***!
   \*************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _slideTo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slideTo.js */ "./node_modules/swiper/core/slide/slideTo.js");
 /* harmony import */ var _slideToLoop_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slideToLoop.js */ "./node_modules/swiper/core/slide/slideToLoop.js");
 /* harmony import */ var _slideNext_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./slideNext.js */ "./node_modules/swiper/core/slide/slideNext.js");
@@ -5395,7 +5361,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   slideTo: _slideTo_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   slideToLoop: _slideToLoop_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   slideNext: _slideNext_js__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -5411,11 +5377,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/core/slide/slideNext.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slideNext)
+/* harmony export */   "default": function() { return /* binding */ slideNext; }
 /* harmony export */ });
 /* eslint no-unused-vars: "off" */
 function slideNext(speed, runCallbacks, internal) {
@@ -5462,11 +5428,11 @@ function slideNext(speed, runCallbacks, internal) {
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/core/slide/slidePrev.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slidePrev)
+/* harmony export */   "default": function() { return /* binding */ slidePrev; }
 /* harmony export */ });
 /* eslint no-unused-vars: "off" */
 function slidePrev(speed, runCallbacks, internal) {
@@ -5547,11 +5513,11 @@ function slidePrev(speed, runCallbacks, internal) {
 /*!******************************************************!*\
   !*** ./node_modules/swiper/core/slide/slideReset.js ***!
   \******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slideReset)
+/* harmony export */   "default": function() { return /* binding */ slideReset; }
 /* harmony export */ });
 /* eslint no-unused-vars: "off" */
 function slideReset(speed, runCallbacks, internal) {
@@ -5573,11 +5539,11 @@ function slideReset(speed, runCallbacks, internal) {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/core/slide/slideTo.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slideTo)
+/* harmony export */   "default": function() { return /* binding */ slideTo; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -5780,11 +5746,11 @@ function slideTo(index, speed, runCallbacks, internal, initial) {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/slide/slideToClickedSlide.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slideToClickedSlide)
+/* harmony export */   "default": function() { return /* binding */ slideToClickedSlide; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
@@ -5834,11 +5800,11 @@ function slideToClickedSlide() {
 /*!**********************************************************!*\
   !*** ./node_modules/swiper/core/slide/slideToClosest.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slideToClosest)
+/* harmony export */   "default": function() { return /* binding */ slideToClosest; }
 /* harmony export */ });
 /* eslint no-unused-vars: "off" */
 function slideToClosest(speed, runCallbacks, internal, threshold) {
@@ -5891,11 +5857,11 @@ function slideToClosest(speed, runCallbacks, internal, threshold) {
 /*!*******************************************************!*\
   !*** ./node_modules/swiper/core/slide/slideToLoop.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ slideToLoop)
+/* harmony export */   "default": function() { return /* binding */ slideToLoop; }
 /* harmony export */ });
 function slideToLoop(index, speed, runCallbacks, internal) {
   if (index === void 0) {
@@ -5949,19 +5915,16 @@ function slideToLoop(index, speed, runCallbacks, internal) {
 /*!******************************************************!*\
   !*** ./node_modules/swiper/core/transition/index.js ***!
   \******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _setTransition_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setTransition.js */ "./node_modules/swiper/core/transition/setTransition.js");
 /* harmony import */ var _transitionStart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./transitionStart.js */ "./node_modules/swiper/core/transition/transitionStart.js");
 /* harmony import */ var _transitionEnd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./transitionEnd.js */ "./node_modules/swiper/core/transition/transitionEnd.js");
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   setTransition: _setTransition_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   transitionStart: _transitionStart_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   transitionEnd: _transitionEnd_js__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -5973,11 +5936,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/core/transition/setTransition.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ setTransition)
+/* harmony export */   "default": function() { return /* binding */ setTransition; }
 /* harmony export */ });
 function setTransition(duration, byController) {
   const swiper = this;
@@ -5995,11 +5958,11 @@ function setTransition(duration, byController) {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/transition/transitionEmit.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ transitionEmit)
+/* harmony export */   "default": function() { return /* binding */ transitionEmit; }
 /* harmony export */ });
 function transitionEmit(_ref) {
   let {
@@ -6042,11 +6005,11 @@ function transitionEmit(_ref) {
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/core/transition/transitionEnd.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ transitionEnd)
+/* harmony export */   "default": function() { return /* binding */ transitionEnd; }
 /* harmony export */ });
 /* harmony import */ var _transitionEmit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transitionEmit.js */ "./node_modules/swiper/core/transition/transitionEmit.js");
 
@@ -6076,11 +6039,11 @@ function transitionEnd(runCallbacks, direction) {
 /*!****************************************************************!*\
   !*** ./node_modules/swiper/core/transition/transitionStart.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ transitionStart)
+/* harmony export */   "default": function() { return /* binding */ transitionStart; }
 /* harmony export */ });
 /* harmony import */ var _transitionEmit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./transitionEmit.js */ "./node_modules/swiper/core/transition/transitionEmit.js");
 
@@ -6113,11 +6076,11 @@ function transitionStart(runCallbacks, direction) {
 /*!************************************************************!*\
   !*** ./node_modules/swiper/core/translate/getTranslate.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ getSwiperTranslate)
+/* harmony export */   "default": function() { return /* binding */ getSwiperTranslate; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -6153,12 +6116,9 @@ function getSwiperTranslate(axis) {
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/core/translate/index.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _getTranslate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getTranslate.js */ "./node_modules/swiper/core/translate/getTranslate.js");
 /* harmony import */ var _setTranslate_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setTranslate.js */ "./node_modules/swiper/core/translate/setTranslate.js");
 /* harmony import */ var _minTranslate_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./minTranslate.js */ "./node_modules/swiper/core/translate/minTranslate.js");
@@ -6169,7 +6129,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   getTranslate: _getTranslate_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   setTranslate: _setTranslate_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   minTranslate: _minTranslate_js__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -6183,11 +6143,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************!*\
   !*** ./node_modules/swiper/core/translate/maxTranslate.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ maxTranslate)
+/* harmony export */   "default": function() { return /* binding */ maxTranslate; }
 /* harmony export */ });
 function maxTranslate() {
   return -this.snapGrid[this.snapGrid.length - 1];
@@ -6199,11 +6159,11 @@ function maxTranslate() {
 /*!************************************************************!*\
   !*** ./node_modules/swiper/core/translate/minTranslate.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ minTranslate)
+/* harmony export */   "default": function() { return /* binding */ minTranslate; }
 /* harmony export */ });
 function minTranslate() {
   return -this.snapGrid[0];
@@ -6215,11 +6175,11 @@ function minTranslate() {
 /*!************************************************************!*\
   !*** ./node_modules/swiper/core/translate/setTranslate.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ setTranslate)
+/* harmony export */   "default": function() { return /* binding */ setTranslate; }
 /* harmony export */ });
 function setTranslate(translate, byController) {
   const swiper = this;
@@ -6276,11 +6236,11 @@ function setTranslate(translate, byController) {
 /*!***********************************************************!*\
   !*** ./node_modules/swiper/core/translate/translateTo.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ translateTo)
+/* harmony export */   "default": function() { return /* binding */ translateTo; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -6391,12 +6351,9 @@ function translateTo(translate, speed, runCallbacks, translateBounds, internal) 
 /*!**************************************************!*\
   !*** ./node_modules/swiper/core/update/index.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _updateSize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updateSize.js */ "./node_modules/swiper/core/update/updateSize.js");
 /* harmony import */ var _updateSlides_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateSlides.js */ "./node_modules/swiper/core/update/updateSlides.js");
 /* harmony import */ var _updateAutoHeight_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateAutoHeight.js */ "./node_modules/swiper/core/update/updateAutoHeight.js");
@@ -6415,7 +6372,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ __webpack_exports__["default"] = ({
   updateSize: _updateSize_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   updateSlides: _updateSlides_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   updateAutoHeight: _updateAutoHeight_js__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -6433,11 +6390,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/core/update/updateActiveIndex.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateActiveIndex)
+/* harmony export */   "default": function() { return /* binding */ updateActiveIndex; }
 /* harmony export */ });
 function updateActiveIndex(newActiveIndex) {
   const swiper = this;
@@ -6516,11 +6473,11 @@ function updateActiveIndex(newActiveIndex) {
 /*!*************************************************************!*\
   !*** ./node_modules/swiper/core/update/updateAutoHeight.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateAutoHeight)
+/* harmony export */   "default": function() { return /* binding */ updateAutoHeight; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 
@@ -6580,11 +6537,11 @@ function updateAutoHeight(speed) {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/update/updateClickedSlide.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateClickedSlide)
+/* harmony export */   "default": function() { return /* binding */ updateClickedSlide; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 
@@ -6630,11 +6587,11 @@ function updateClickedSlide(e) {
 /*!***********************************************************!*\
   !*** ./node_modules/swiper/core/update/updateProgress.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateProgress)
+/* harmony export */   "default": function() { return /* binding */ updateProgress; }
 /* harmony export */ });
 function updateProgress(translate) {
   const swiper = this;
@@ -6693,11 +6650,11 @@ function updateProgress(translate) {
 /*!*******************************************************!*\
   !*** ./node_modules/swiper/core/update/updateSize.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateSize)
+/* harmony export */   "default": function() { return /* binding */ updateSize; }
 /* harmony export */ });
 function updateSize() {
   const swiper = this;
@@ -6739,11 +6696,11 @@ function updateSize() {
 /*!*********************************************************!*\
   !*** ./node_modules/swiper/core/update/updateSlides.js ***!
   \*********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateSlides)
+/* harmony export */   "default": function() { return /* binding */ updateSlides; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -7073,11 +7030,11 @@ function updateSlides() {
 /*!****************************************************************!*\
   !*** ./node_modules/swiper/core/update/updateSlidesClasses.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateSlidesClasses)
+/* harmony export */   "default": function() { return /* binding */ updateSlidesClasses; }
 /* harmony export */ });
 function updateSlidesClasses() {
   const swiper = this;
@@ -7150,11 +7107,11 @@ function updateSlidesClasses() {
 /*!***************************************************************!*\
   !*** ./node_modules/swiper/core/update/updateSlidesOffset.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateSlidesOffset)
+/* harmony export */   "default": function() { return /* binding */ updateSlidesOffset; }
 /* harmony export */ });
 function updateSlidesOffset() {
   const swiper = this;
@@ -7171,11 +7128,11 @@ function updateSlidesOffset() {
 /*!*****************************************************************!*\
   !*** ./node_modules/swiper/core/update/updateSlidesProgress.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateSlidesProgress)
+/* harmony export */   "default": function() { return /* binding */ updateSlidesProgress; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 
@@ -7233,11 +7190,11 @@ function updateSlidesProgress(translate) {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/modules/a11y/a11y.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ A11y)
+/* harmony export */   "default": function() { return /* binding */ A11y; }
 /* harmony export */ });
 /* harmony import */ var _shared_classes_to_selector_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/classes-to-selector.js */ "./node_modules/swiper/shared/classes-to-selector.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -7581,11 +7538,11 @@ function A11y(_ref) {
 /*!**********************************************************!*\
   !*** ./node_modules/swiper/modules/autoplay/autoplay.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Autoplay)
+/* harmony export */   "default": function() { return /* binding */ Autoplay; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
@@ -7827,11 +7784,11 @@ function Autoplay(_ref) {
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/modules/controller/controller.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Controller)
+/* harmony export */   "default": function() { return /* binding */ Controller; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 /* eslint no-bitwise: ["error", { "allow": [">>"] }] */
@@ -8033,11 +7990,11 @@ function Controller(_ref) {
 /*!******************************************************************!*\
   !*** ./node_modules/swiper/modules/effect-cards/effect-cards.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ EffectCards)
+/* harmony export */   "default": function() { return /* binding */ EffectCards; }
 /* harmony export */ });
 /* harmony import */ var _shared_create_shadow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/create-shadow.js */ "./node_modules/swiper/shared/create-shadow.js");
 /* harmony import */ var _shared_effect_init_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/effect-init.js */ "./node_modules/swiper/shared/effect-init.js");
@@ -8178,11 +8135,11 @@ function EffectCards(_ref) {
 /*!**************************************************************************!*\
   !*** ./node_modules/swiper/modules/effect-coverflow/effect-coverflow.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ EffectCoverflow)
+/* harmony export */   "default": function() { return /* binding */ EffectCoverflow; }
 /* harmony export */ });
 /* harmony import */ var _shared_create_shadow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/create-shadow.js */ "./node_modules/swiper/shared/create-shadow.js");
 /* harmony import */ var _shared_effect_init_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/effect-init.js */ "./node_modules/swiper/shared/effect-init.js");
@@ -8299,11 +8256,11 @@ function EffectCoverflow(_ref) {
 /*!************************************************************************!*\
   !*** ./node_modules/swiper/modules/effect-creative/effect-creative.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ EffectCreative)
+/* harmony export */   "default": function() { return /* binding */ EffectCreative; }
 /* harmony export */ });
 /* harmony import */ var _shared_create_shadow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/create-shadow.js */ "./node_modules/swiper/shared/create-shadow.js");
 /* harmony import */ var _shared_effect_init_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/effect-init.js */ "./node_modules/swiper/shared/effect-init.js");
@@ -8471,11 +8428,11 @@ function EffectCreative(_ref) {
 /*!****************************************************************!*\
   !*** ./node_modules/swiper/modules/effect-cube/effect-cube.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ EffectCube)
+/* harmony export */   "default": function() { return /* binding */ EffectCube; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 /* harmony import */ var _shared_effect_init_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/effect-init.js */ "./node_modules/swiper/shared/effect-init.js");
@@ -8682,11 +8639,11 @@ function EffectCube(_ref) {
 /*!****************************************************************!*\
   !*** ./node_modules/swiper/modules/effect-fade/effect-fade.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ EffectFade)
+/* harmony export */   "default": function() { return /* binding */ EffectFade; }
 /* harmony export */ });
 /* harmony import */ var _shared_effect_init_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/effect-init.js */ "./node_modules/swiper/shared/effect-init.js");
 /* harmony import */ var _shared_effect_target_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/effect-target.js */ "./node_modules/swiper/shared/effect-target.js");
@@ -8769,11 +8726,11 @@ function EffectFade(_ref) {
 /*!****************************************************************!*\
   !*** ./node_modules/swiper/modules/effect-flip/effect-flip.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ EffectFlip)
+/* harmony export */   "default": function() { return /* binding */ EffectFlip; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 /* harmony import */ var _shared_create_shadow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/create-shadow.js */ "./node_modules/swiper/shared/create-shadow.js");
@@ -8911,11 +8868,11 @@ function EffectFlip(_ref) {
 /*!************************************************************!*\
   !*** ./node_modules/swiper/modules/free-mode/free-mode.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ freeMode)
+/* harmony export */   "default": function() { return /* binding */ freeMode; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 
@@ -9183,11 +9140,11 @@ function freeMode(_ref) {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/modules/grid/grid.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Grid)
+/* harmony export */   "default": function() { return /* binding */ Grid; }
 /* harmony export */ });
 function Grid(_ref) {
   let {
@@ -9313,11 +9270,11 @@ function Grid(_ref) {
 /*!************************************************************************!*\
   !*** ./node_modules/swiper/modules/hash-navigation/hash-navigation.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ HashNavigation)
+/* harmony export */   "default": function() { return /* binding */ HashNavigation; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -9425,11 +9382,11 @@ function HashNavigation(_ref) {
 /*!********************************************************!*\
   !*** ./node_modules/swiper/modules/history/history.js ***!
   \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ History)
+/* harmony export */   "default": function() { return /* binding */ History; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -9595,11 +9552,11 @@ function History(_ref) {
 /*!**********************************************************!*\
   !*** ./node_modules/swiper/modules/keyboard/keyboard.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Keyboard)
+/* harmony export */   "default": function() { return /* binding */ Keyboard; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -9742,11 +9699,11 @@ function Keyboard(_ref) {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/modules/lazy/lazy.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Lazy)
+/* harmony export */   "default": function() { return /* binding */ Lazy; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -10049,11 +10006,11 @@ function Lazy(_ref) {
 /*!******************************************************************!*\
   !*** ./node_modules/swiper/modules/manipulation/manipulation.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Manipulation)
+/* harmony export */   "default": function() { return /* binding */ Manipulation; }
 /* harmony export */ });
 /* harmony import */ var _methods_appendSlide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methods/appendSlide.js */ "./node_modules/swiper/modules/manipulation/methods/appendSlide.js");
 /* harmony import */ var _methods_prependSlide_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methods/prependSlide.js */ "./node_modules/swiper/modules/manipulation/methods/prependSlide.js");
@@ -10084,11 +10041,11 @@ function Manipulation(_ref) {
 /*!**********************************************************************!*\
   !*** ./node_modules/swiper/modules/manipulation/methods/addSlide.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addSlide)
+/* harmony export */   "default": function() { return /* binding */ addSlide; }
 /* harmony export */ });
 function addSlide(index, slides) {
   const swiper = this;
@@ -10161,11 +10118,11 @@ function addSlide(index, slides) {
 /*!*************************************************************************!*\
   !*** ./node_modules/swiper/modules/manipulation/methods/appendSlide.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ appendSlide)
+/* harmony export */   "default": function() { return /* binding */ appendSlide; }
 /* harmony export */ });
 function appendSlide(slides) {
   const swiper = this;
@@ -10201,11 +10158,11 @@ function appendSlide(slides) {
 /*!**************************************************************************!*\
   !*** ./node_modules/swiper/modules/manipulation/methods/prependSlide.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ prependSlide)
+/* harmony export */   "default": function() { return /* binding */ prependSlide; }
 /* harmony export */ });
 function prependSlide(slides) {
   const swiper = this;
@@ -10248,11 +10205,11 @@ function prependSlide(slides) {
 /*!*****************************************************************************!*\
   !*** ./node_modules/swiper/modules/manipulation/methods/removeAllSlides.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ removeAllSlides)
+/* harmony export */   "default": function() { return /* binding */ removeAllSlides; }
 /* harmony export */ });
 function removeAllSlides() {
   const swiper = this;
@@ -10271,11 +10228,11 @@ function removeAllSlides() {
 /*!*************************************************************************!*\
   !*** ./node_modules/swiper/modules/manipulation/methods/removeSlide.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ removeSlide)
+/* harmony export */   "default": function() { return /* binding */ removeSlide; }
 /* harmony export */ });
 function removeSlide(slidesIndexes) {
   const swiper = this;
@@ -10331,11 +10288,11 @@ function removeSlide(slidesIndexes) {
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/modules/mousewheel/mousewheel.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Mousewheel)
+/* harmony export */   "default": function() { return /* binding */ Mousewheel; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -10770,11 +10727,11 @@ function Mousewheel(_ref) {
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/modules/navigation/navigation.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Navigation)
+/* harmony export */   "default": function() { return /* binding */ Navigation; }
 /* harmony export */ });
 /* harmony import */ var _shared_create_element_if_not_defined_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/create-element-if-not-defined.js */ "./node_modules/swiper/shared/create-element-if-not-defined.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -10993,11 +10950,11 @@ function Navigation(_ref) {
 /*!**************************************************************!*\
   !*** ./node_modules/swiper/modules/pagination/pagination.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Pagination)
+/* harmony export */   "default": function() { return /* binding */ Pagination; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 /* harmony import */ var _shared_classes_to_selector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/classes-to-selector.js */ "./node_modules/swiper/shared/classes-to-selector.js");
@@ -11451,11 +11408,11 @@ function Pagination(_ref) {
 /*!**********************************************************!*\
   !*** ./node_modules/swiper/modules/parallax/parallax.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Parallax)
+/* harmony export */   "default": function() { return /* binding */ Parallax; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 
@@ -11584,11 +11541,11 @@ function Parallax(_ref) {
 /*!************************************************************!*\
   !*** ./node_modules/swiper/modules/scrollbar/scrollbar.js ***!
   \************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Scrollbar)
+/* harmony export */   "default": function() { return /* binding */ Scrollbar; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -12005,11 +11962,11 @@ function Scrollbar(_ref) {
 /*!******************************************************!*\
   !*** ./node_modules/swiper/modules/thumbs/thumbs.js ***!
   \******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Thumb)
+/* harmony export */   "default": function() { return /* binding */ Thumb; }
 /* harmony export */ });
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -12224,11 +12181,11 @@ function Thumb(_ref) {
 /*!********************************************************!*\
   !*** ./node_modules/swiper/modules/virtual/virtual.js ***!
   \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Virtual)
+/* harmony export */   "default": function() { return /* binding */ Virtual; }
 /* harmony export */ });
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
 /* harmony import */ var _shared_utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/utils.js */ "./node_modules/swiper/shared/utils.js");
@@ -12537,11 +12494,11 @@ function Virtual(_ref) {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/modules/zoom/zoom.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Zoom)
+/* harmony export */   "default": function() { return /* binding */ Zoom; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _shared_dom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/dom.js */ "./node_modules/swiper/shared/dom.js");
@@ -13166,14 +13123,14 @@ function Zoom(_ref) {
 /*!**********************************************!*\
   !*** ./node_modules/swiper/react/context.js ***!
   \**********************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SwiperContext": () => (/* binding */ SwiperContext),
-/* harmony export */   "SwiperSlideContext": () => (/* binding */ SwiperSlideContext),
-/* harmony export */   "useSwiper": () => (/* binding */ useSwiper),
-/* harmony export */   "useSwiperSlide": () => (/* binding */ useSwiperSlide)
+/* harmony export */   "SwiperContext": function() { return /* binding */ SwiperContext; },
+/* harmony export */   "SwiperSlideContext": function() { return /* binding */ SwiperSlideContext; },
+/* harmony export */   "useSwiper": function() { return /* binding */ useSwiper; },
+/* harmony export */   "useSwiperSlide": function() { return /* binding */ useSwiperSlide; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -13192,11 +13149,11 @@ const useSwiper = () => {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/react/get-children.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getChildren": () => (/* binding */ getChildren)
+/* harmony export */   "getChildren": function() { return /* binding */ getChildren; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -13252,12 +13209,12 @@ function getChildren(c) {
 /*!*******************************************!*\
   !*** ./node_modules/swiper/react/loop.js ***!
   \*******************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "calcLoopedSlides": () => (/* binding */ calcLoopedSlides),
-/* harmony export */   "renderLoop": () => (/* binding */ renderLoop)
+/* harmony export */   "calcLoopedSlides": function() { return /* binding */ calcLoopedSlides; },
+/* harmony export */   "renderLoop": function() { return /* binding */ renderLoop; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
@@ -13343,14 +13300,14 @@ function renderLoop(swiper, slides, swiperParams) {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/react/swiper-react.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Swiper": () => (/* reexport safe */ _swiper_js__WEBPACK_IMPORTED_MODULE_0__.Swiper),
-/* harmony export */   "SwiperSlide": () => (/* reexport safe */ _swiper_slide_js__WEBPACK_IMPORTED_MODULE_1__.SwiperSlide),
-/* harmony export */   "useSwiper": () => (/* reexport safe */ _context_js__WEBPACK_IMPORTED_MODULE_2__.useSwiper),
-/* harmony export */   "useSwiperSlide": () => (/* reexport safe */ _context_js__WEBPACK_IMPORTED_MODULE_2__.useSwiperSlide)
+/* harmony export */   "Swiper": function() { return /* reexport safe */ _swiper_js__WEBPACK_IMPORTED_MODULE_0__.Swiper; },
+/* harmony export */   "SwiperSlide": function() { return /* reexport safe */ _swiper_slide_js__WEBPACK_IMPORTED_MODULE_1__.SwiperSlide; },
+/* harmony export */   "useSwiper": function() { return /* reexport safe */ _context_js__WEBPACK_IMPORTED_MODULE_2__.useSwiper; },
+/* harmony export */   "useSwiperSlide": function() { return /* reexport safe */ _context_js__WEBPACK_IMPORTED_MODULE_2__.useSwiperSlide; }
 /* harmony export */ });
 /* harmony import */ var _swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./swiper.js */ "./node_modules/swiper/react/swiper.js");
 /* harmony import */ var _swiper_slide_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swiper-slide.js */ "./node_modules/swiper/react/swiper-slide.js");
@@ -13378,11 +13335,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./node_modules/swiper/react/swiper-slide.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SwiperSlide": () => (/* binding */ SwiperSlide)
+/* harmony export */   "SwiperSlide": function() { return /* binding */ SwiperSlide; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var _components_shared_utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components-shared/utils.js */ "./node_modules/swiper/components-shared/utils.js");
@@ -13474,11 +13431,11 @@ SwiperSlide.displayName = 'SwiperSlide';
 /*!*********************************************!*\
   !*** ./node_modules/swiper/react/swiper.js ***!
   \*********************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Swiper": () => (/* binding */ Swiper)
+/* harmony export */   "Swiper": function() { return /* binding */ Swiper; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
@@ -13717,11 +13674,11 @@ Swiper.displayName = 'Swiper';
 /*!*******************************************************************!*\
   !*** ./node_modules/swiper/react/use-isomorphic-layout-effect.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useIsomorphicLayoutEffect": () => (/* binding */ useIsomorphicLayoutEffect)
+/* harmony export */   "useIsomorphicLayoutEffect": function() { return /* binding */ useIsomorphicLayoutEffect; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -13740,11 +13697,11 @@ function useIsomorphicLayoutEffect(callback, deps) {
 /*!**********************************************!*\
   !*** ./node_modules/swiper/react/virtual.js ***!
   \**********************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderVirtual": () => (/* binding */ renderVirtual)
+/* harmony export */   "renderVirtual": function() { return /* binding */ renderVirtual; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 
@@ -13772,11 +13729,11 @@ function renderVirtual(swiper, slides, virtualData) {
 /*!***********************************************************!*\
   !*** ./node_modules/swiper/shared/classes-to-selector.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ classesToSelector)
+/* harmony export */   "default": function() { return /* binding */ classesToSelector; }
 /* harmony export */ });
 function classesToSelector(classes) {
   if (classes === void 0) {
@@ -13793,11 +13750,11 @@ function classesToSelector(classes) {
 /*!*********************************************************************!*\
   !*** ./node_modules/swiper/shared/create-element-if-not-defined.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createElementIfNotDefined)
+/* harmony export */   "default": function() { return /* binding */ createElementIfNotDefined; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -13830,11 +13787,11 @@ function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/shared/create-shadow.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createShadow)
+/* harmony export */   "default": function() { return /* binding */ createShadow; }
 /* harmony export */ });
 /* harmony import */ var _dom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom.js */ "./node_modules/swiper/shared/dom.js");
 
@@ -13857,12 +13814,9 @@ function createShadow(params, $slideEl, side) {
 /*!*******************************************!*\
   !*** ./node_modules/swiper/shared/dom.js ***!
   \*******************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var dom7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dom7 */ "./node_modules/dom7/dom7.esm.js");
 
 const Methods = {
@@ -13909,7 +13863,7 @@ Object.keys(Methods).forEach(methodName => {
     writable: true
   });
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dom7__WEBPACK_IMPORTED_MODULE_0__.$);
+/* harmony default export */ __webpack_exports__["default"] = (dom7__WEBPACK_IMPORTED_MODULE_0__.$);
 
 /***/ }),
 
@@ -13917,11 +13871,11 @@ Object.keys(Methods).forEach(methodName => {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/shared/effect-init.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ effectInit)
+/* harmony export */   "default": function() { return /* binding */ effectInit; }
 /* harmony export */ });
 function effectInit(params) {
   const {
@@ -13992,11 +13946,11 @@ function effectInit(params) {
 /*!*****************************************************!*\
   !*** ./node_modules/swiper/shared/effect-target.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ effectTarget)
+/* harmony export */   "default": function() { return /* binding */ effectTarget; }
 /* harmony export */ });
 function effectTarget(effectParams, $slideEl) {
   if (effectParams.transformEl) {
@@ -14015,11 +13969,11 @@ function effectTarget(effectParams, $slideEl) {
 /*!*********************************************************************!*\
   !*** ./node_modules/swiper/shared/effect-virtual-transition-end.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ effectVirtualTransitionEnd)
+/* harmony export */   "default": function() { return /* binding */ effectVirtualTransitionEnd; }
 /* harmony export */ });
 function effectVirtualTransitionEnd(_ref) {
   let {
@@ -14064,11 +14018,11 @@ function effectVirtualTransitionEnd(_ref) {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/shared/get-browser.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getBrowser": () => (/* binding */ getBrowser)
+/* harmony export */   "getBrowser": function() { return /* binding */ getBrowser; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -14104,11 +14058,11 @@ function getBrowser() {
 /*!**************************************************!*\
   !*** ./node_modules/swiper/shared/get-device.js ***!
   \**************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getDevice": () => (/* binding */ getDevice)
+/* harmony export */   "getDevice": function() { return /* binding */ getDevice; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /* harmony import */ var _get_support_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get-support.js */ "./node_modules/swiper/shared/get-support.js");
@@ -14181,11 +14135,11 @@ function getDevice(overrides) {
 /*!***************************************************!*\
   !*** ./node_modules/swiper/shared/get-support.js ***!
   \***************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getSupport": () => (/* binding */ getSupport)
+/* harmony export */   "getSupport": function() { return /* binding */ getSupport; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -14236,19 +14190,19 @@ function getSupport() {
 /*!*********************************************!*\
   !*** ./node_modules/swiper/shared/utils.js ***!
   \*********************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "animateCSSModeScroll": () => (/* binding */ animateCSSModeScroll),
-/* harmony export */   "deleteProps": () => (/* binding */ deleteProps),
-/* harmony export */   "extend": () => (/* binding */ extend),
-/* harmony export */   "getComputedStyle": () => (/* binding */ getComputedStyle),
-/* harmony export */   "getTranslate": () => (/* binding */ getTranslate),
-/* harmony export */   "isObject": () => (/* binding */ isObject),
-/* harmony export */   "nextTick": () => (/* binding */ nextTick),
-/* harmony export */   "now": () => (/* binding */ now),
-/* harmony export */   "setCSSProperty": () => (/* binding */ setCSSProperty)
+/* harmony export */   "animateCSSModeScroll": function() { return /* binding */ animateCSSModeScroll; },
+/* harmony export */   "deleteProps": function() { return /* binding */ deleteProps; },
+/* harmony export */   "extend": function() { return /* binding */ extend; },
+/* harmony export */   "getComputedStyle": function() { return /* binding */ getComputedStyle; },
+/* harmony export */   "getTranslate": function() { return /* binding */ getTranslate; },
+/* harmony export */   "isObject": function() { return /* binding */ isObject; },
+/* harmony export */   "nextTick": function() { return /* binding */ nextTick; },
+/* harmony export */   "now": function() { return /* binding */ now; },
+/* harmony export */   "setCSSProperty": function() { return /* binding */ setCSSProperty; }
 /* harmony export */ });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
@@ -14464,36 +14418,36 @@ function animateCSSModeScroll(_ref) {
 /*!*******************************************!*\
   !*** ./node_modules/swiper/swiper.esm.js ***!
   \*******************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "A11y": () => (/* reexport safe */ _modules_a11y_a11y_js__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "Autoplay": () => (/* reexport safe */ _modules_autoplay_autoplay_js__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   "Controller": () => (/* reexport safe */ _modules_controller_controller_js__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "EffectCards": () => (/* reexport safe */ _modules_effect_cards_effect_cards_js__WEBPACK_IMPORTED_MODULE_24__["default"]),
-/* harmony export */   "EffectCoverflow": () => (/* reexport safe */ _modules_effect_coverflow_effect_coverflow_js__WEBPACK_IMPORTED_MODULE_22__["default"]),
-/* harmony export */   "EffectCreative": () => (/* reexport safe */ _modules_effect_creative_effect_creative_js__WEBPACK_IMPORTED_MODULE_23__["default"]),
-/* harmony export */   "EffectCube": () => (/* reexport safe */ _modules_effect_cube_effect_cube_js__WEBPACK_IMPORTED_MODULE_20__["default"]),
-/* harmony export */   "EffectFade": () => (/* reexport safe */ _modules_effect_fade_effect_fade_js__WEBPACK_IMPORTED_MODULE_19__["default"]),
-/* harmony export */   "EffectFlip": () => (/* reexport safe */ _modules_effect_flip_effect_flip_js__WEBPACK_IMPORTED_MODULE_21__["default"]),
-/* harmony export */   "FreeMode": () => (/* reexport safe */ _modules_free_mode_free_mode_js__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "Grid": () => (/* reexport safe */ _modules_grid_grid_js__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   "HashNavigation": () => (/* reexport safe */ _modules_hash_navigation_hash_navigation_js__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "History": () => (/* reexport safe */ _modules_history_history_js__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   "Keyboard": () => (/* reexport safe */ _modules_keyboard_keyboard_js__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   "Lazy": () => (/* reexport safe */ _modules_lazy_lazy_js__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "Manipulation": () => (/* reexport safe */ _modules_manipulation_manipulation_js__WEBPACK_IMPORTED_MODULE_18__["default"]),
-/* harmony export */   "Mousewheel": () => (/* reexport safe */ _modules_mousewheel_mousewheel_js__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "Navigation": () => (/* reexport safe */ _modules_navigation_navigation_js__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "Pagination": () => (/* reexport safe */ _modules_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "Parallax": () => (/* reexport safe */ _modules_parallax_parallax_js__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "Scrollbar": () => (/* reexport safe */ _modules_scrollbar_scrollbar_js__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "Swiper": () => (/* reexport safe */ _core_core_js__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "Thumbs": () => (/* reexport safe */ _modules_thumbs_thumbs_js__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   "Virtual": () => (/* reexport safe */ _modules_virtual_virtual_js__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "Zoom": () => (/* reexport safe */ _modules_zoom_zoom_js__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "default": () => (/* reexport safe */ _core_core_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "A11y": function() { return /* reexport safe */ _modules_a11y_a11y_js__WEBPACK_IMPORTED_MODULE_11__["default"]; },
+/* harmony export */   "Autoplay": function() { return /* reexport safe */ _modules_autoplay_autoplay_js__WEBPACK_IMPORTED_MODULE_14__["default"]; },
+/* harmony export */   "Controller": function() { return /* reexport safe */ _modules_controller_controller_js__WEBPACK_IMPORTED_MODULE_10__["default"]; },
+/* harmony export */   "EffectCards": function() { return /* reexport safe */ _modules_effect_cards_effect_cards_js__WEBPACK_IMPORTED_MODULE_24__["default"]; },
+/* harmony export */   "EffectCoverflow": function() { return /* reexport safe */ _modules_effect_coverflow_effect_coverflow_js__WEBPACK_IMPORTED_MODULE_22__["default"]; },
+/* harmony export */   "EffectCreative": function() { return /* reexport safe */ _modules_effect_creative_effect_creative_js__WEBPACK_IMPORTED_MODULE_23__["default"]; },
+/* harmony export */   "EffectCube": function() { return /* reexport safe */ _modules_effect_cube_effect_cube_js__WEBPACK_IMPORTED_MODULE_20__["default"]; },
+/* harmony export */   "EffectFade": function() { return /* reexport safe */ _modules_effect_fade_effect_fade_js__WEBPACK_IMPORTED_MODULE_19__["default"]; },
+/* harmony export */   "EffectFlip": function() { return /* reexport safe */ _modules_effect_flip_effect_flip_js__WEBPACK_IMPORTED_MODULE_21__["default"]; },
+/* harmony export */   "FreeMode": function() { return /* reexport safe */ _modules_free_mode_free_mode_js__WEBPACK_IMPORTED_MODULE_16__["default"]; },
+/* harmony export */   "Grid": function() { return /* reexport safe */ _modules_grid_grid_js__WEBPACK_IMPORTED_MODULE_17__["default"]; },
+/* harmony export */   "HashNavigation": function() { return /* reexport safe */ _modules_hash_navigation_hash_navigation_js__WEBPACK_IMPORTED_MODULE_13__["default"]; },
+/* harmony export */   "History": function() { return /* reexport safe */ _modules_history_history_js__WEBPACK_IMPORTED_MODULE_12__["default"]; },
+/* harmony export */   "Keyboard": function() { return /* reexport safe */ _modules_keyboard_keyboard_js__WEBPACK_IMPORTED_MODULE_2__["default"]; },
+/* harmony export */   "Lazy": function() { return /* reexport safe */ _modules_lazy_lazy_js__WEBPACK_IMPORTED_MODULE_9__["default"]; },
+/* harmony export */   "Manipulation": function() { return /* reexport safe */ _modules_manipulation_manipulation_js__WEBPACK_IMPORTED_MODULE_18__["default"]; },
+/* harmony export */   "Mousewheel": function() { return /* reexport safe */ _modules_mousewheel_mousewheel_js__WEBPACK_IMPORTED_MODULE_3__["default"]; },
+/* harmony export */   "Navigation": function() { return /* reexport safe */ _modules_navigation_navigation_js__WEBPACK_IMPORTED_MODULE_4__["default"]; },
+/* harmony export */   "Pagination": function() { return /* reexport safe */ _modules_pagination_pagination_js__WEBPACK_IMPORTED_MODULE_5__["default"]; },
+/* harmony export */   "Parallax": function() { return /* reexport safe */ _modules_parallax_parallax_js__WEBPACK_IMPORTED_MODULE_7__["default"]; },
+/* harmony export */   "Scrollbar": function() { return /* reexport safe */ _modules_scrollbar_scrollbar_js__WEBPACK_IMPORTED_MODULE_6__["default"]; },
+/* harmony export */   "Swiper": function() { return /* reexport safe */ _core_core_js__WEBPACK_IMPORTED_MODULE_0__["default"]; },
+/* harmony export */   "Thumbs": function() { return /* reexport safe */ _modules_thumbs_thumbs_js__WEBPACK_IMPORTED_MODULE_15__["default"]; },
+/* harmony export */   "Virtual": function() { return /* reexport safe */ _modules_virtual_virtual_js__WEBPACK_IMPORTED_MODULE_1__["default"]; },
+/* harmony export */   "Zoom": function() { return /* reexport safe */ _modules_zoom_zoom_js__WEBPACK_IMPORTED_MODULE_8__["default"]; },
+/* harmony export */   "default": function() { return /* reexport safe */ _core_core_js__WEBPACK_IMPORTED_MODULE_0__["default"]; }
 /* harmony export */ });
 /* harmony import */ var _core_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/core.js */ "./node_modules/swiper/core/core.js");
 /* harmony import */ var _modules_virtual_virtual_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/virtual/virtual.js */ "./node_modules/swiper/modules/virtual/virtual.js");
@@ -14564,9 +14518,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./src/block.json ***!
   \************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/txp-slider","version":"0.1.0","title":"Txp Slider","category":"media","icon":"cover-image","description":"Post Featured Image Slider Block","supports":{"html":false},"textdomain":"txp-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"align":{"type":"string","default":"center"},"gradient":{"type":"string","default":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"},"siteURL":{"type":"string","default":"https://wptavern.com/"},"numberOfPosts":{"type":"number","default":2},"numberOfColumns":{"type":"number","default":1},"overlayBgOpecity":{"type":"number","default":48}},"example":{"attributes":{"align":"center","siteURL":"https://www.google.com/"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/txp-slider","version":"0.1.0","title":"Txp Slider","category":"media","icon":"cover-image","description":"Post Featured Image Slider Block","supports":{"html":false},"textdomain":"txp-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"contentAlign":{"type":"string","default":"center"},"gradient":{"type":"string","default":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)"},"siteURL":{"type":"string","default":"https://wptavern.com/"},"numberOfPosts":{"type":"number","default":2},"numberOfColumns":{"type":"number","default":1},"overlayBgOpecity":{"type":"number","default":48}},"example":{"attributes":{"contentAlign":"center","siteURL":"https://wptavern.com/","gradient":"linear-gradient(135deg,#12c2e9 0%,#c471ed 50%,#f64f59 100%)","numberOfPosts":3,"numberOfColumns":1,"overlayBgOpecity":56}}}');
 
 /***/ })
 
@@ -14601,9 +14555,9 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 		__webpack_require__.O = function(result, chunkIds, fn, priority) {
 /******/ 			if(chunkIds) {
 /******/ 				priority = priority || 0;
 /******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
@@ -14617,7 +14571,7 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 				var priority = deferred[i][2];
 /******/ 				var fulfilled = true;
 /******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every(function(key) { return __webpack_require__.O[key](chunkIds[j]); })) {
 /******/ 						chunkIds.splice(j--, 1);
 /******/ 					} else {
 /******/ 						fulfilled = false;
@@ -14632,50 +14586,50 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 			}
 /******/ 			return result;
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
+/******/ 		__webpack_require__.n = function(module) {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 		__webpack_require__.d = function(exports, definition) {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// no baseURI
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
@@ -14696,17 +14650,17 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		__webpack_require__.O.j = function(chunkId) { return installedChunks[chunkId] === 0; };
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 		var webpackJsonpCallback = function(parentChunkLoadingFunction, data) {
 /******/ 			var chunkIds = data[0];
 /******/ 			var moreModules = data[1];
 /******/ 			var runtime = data[2];
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 			if(chunkIds.some(function(id) { return installedChunks[id] !== 0; })) {
 /******/ 				for(moduleId in moreModules) {
 /******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
 /******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
@@ -14728,14 +14682,14 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 		var chunkLoadingGlobal = self["webpackChunktxp_slider"] = self["webpackChunktxp_slider"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], function() { return __webpack_require__("./src/index.js"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

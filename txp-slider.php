@@ -28,4 +28,4 @@ function create_block_txp_slider_block_init() {
 add_action( 'init', 'create_block_txp_slider_block_init' );
 
 
-require plugin_dir_path( __FILE__ ) . './txp-front.php';
+require plugin_dir_path( __FILE__ ) . './src/txp-front.php';

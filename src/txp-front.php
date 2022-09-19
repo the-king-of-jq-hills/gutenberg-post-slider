@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } 
 
-$txpcolumns = 1;
+//$txpcolumns = 1;
 
 function txp_slider_render_front_slider( $attr ) {
 
@@ -20,10 +20,12 @@ function txp_slider_render_front_slider( $attr ) {
 	$slides = '';
 	$columnclass = '';
 
-	global $txpcolumns;
+	//global $txpcolumns;
 	$txpcolumns = $attr['numberOfColumns'];
 
 	$blog_url = $attr['siteURL']."wp-json/wp/v2/posts?per_page=".$attr['numberOfPosts'];
+
+	//print_r($attr);
 
 	$response = wp_remote_get( $blog_url );
 
@@ -67,8 +69,8 @@ function txp_slider_render_front_slider( $attr ) {
 		$columnclass = "txp-singlecolumn";
 	}
 
-	$output .= '<div class="txp-slider-wrap ' .$columnclass. ' txp-dynamic-align-'. $attr['align'] .'" >';
-	$output .= '<div class="swiper txp-slider-swiper">';
+	$output .= '<div class="txp-slider-wrap ' .$columnclass. ' txp-dynamic-align-'. $attr['contentAlign'] .'" >';
+	$output .= '<div class="swiper txp-slider-swiper-' . $txpcolumns . '">';
 	$output .= '<div class="swiper-wrapper">';
 
 	$output .= $slides;
@@ -82,19 +84,8 @@ function txp_slider_render_front_slider( $attr ) {
 	$output .= '</div>';
 	$output .= '</div>';
 
-
-	//print_r($attr);
-
-	return $output ?? '<strong>Sorry! Could not find any post.</strong>';
-}
-
-
-add_action('wp_footer', 'txp_swiper_init_wp_footer');
-function txp_swiper_init_wp_footer() {
-	global $txpcolumns;
-    ?>
-        <script>
-			var swiper = new Swiper(".txp-slider-swiper", {
+	$output .= ' <script>
+			var swiper = new Swiper(".txp-slider-swiper-' .$txpcolumns. '", {
 				pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
@@ -103,8 +94,8 @@ function txp_swiper_init_wp_footer() {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
 				},
-				slidesPerView: <?php echo $txpcolumns; ?>,
-        		spaceBetween: 32,
+				slidesPerView: ' . $txpcolumns . ',
+				spaceBetween: 32,
 				a11y: true,
 				breakpoints: {
 					// when window width is >= 320px
@@ -114,15 +105,17 @@ function txp_swiper_init_wp_footer() {
 					},
 					// when window width is >= 640px
 					768: {
-						slidesPerView: <?php echo $txpcolumns; ?>,
+						slidesPerView: ' . $txpcolumns . ',
 						spaceBetween: 32,
 					},
 				},
 				keyboard: true,			
 			});
-        </script>
-    <?php
+		</script>';
+
+	return $output ?? '<strong>Sorry! Could not find any post.</strong>';
 }
+
 
 add_action( 'wp_enqueue_scripts', 'txp_swiper_assets' );
 function txp_swiper_assets() {

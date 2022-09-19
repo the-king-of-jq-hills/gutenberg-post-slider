@@ -55,7 +55,7 @@ import './editor.scss';
  */
 export default function Edit({attributes, setAttributes}) {
 
-	const { align, gradient, siteURL, overlayBgOpecity, numberOfPosts, numberOfColumns } = attributes;
+	const { contentAlign, gradient, siteURL, overlayBgOpecity, numberOfPosts, numberOfColumns } = attributes;
 
 	let txpColumnStat;
 
@@ -66,13 +66,11 @@ export default function Edit({attributes, setAttributes}) {
 	}
 
 	const blockProps = useBlockProps({
-		className: txpColumnStat+' txp-dynamic-align-'+align,
+		className: txpColumnStat+' txp-dynamic-align-'+contentAlign,
 	});
 	
-	const onChangeAlign = ( newAlign ) => {
-		setAttributes( { 
-			align: newAlign === undefined ? 'none' : newAlign, 
-		} )
+	const onChangeContentAlign = ( newContentAlign ) => {
+		setAttributes( { contentAlign: newContentAlign 	} )
 	}
 
 	const onChangesiteURL = ( newsiteURL ) => {
@@ -99,7 +97,7 @@ export default function Edit({attributes, setAttributes}) {
     useEffect(() => {
         async function loadPosts() {
 			const blogURL = siteURL+"wp-json/wp/v2/posts?per_page="+numberOfPosts;
-			console.log(blogURL + " : " + numberOfPosts );
+			//console.log(blogURL + " : " + numberOfPosts );
             const response = await fetch(blogURL);
             if(!response.ok) {
                 // oups! something went wrong
@@ -209,7 +207,7 @@ export default function Edit({attributes, setAttributes}) {
 								max={ 4 }
 							/>
 							<div className='txp-custom-control-label'>{ __("Align Content", "txp-slider") }</div>						
-							<RadioGroup label="Text Align" onChange={ onChangeAlign } checked={ align }>
+							<RadioGroup label="Text Align" onChange={ onChangeContentAlign } checked={ contentAlign }>
 								<Radio value="left">{ __("Left", "txp-slider") }</Radio>
 								<Radio value="center">{ __("Center", "txp-slider") }</Radio>
 								<Radio value="right">{ __("Right", "txp-slider") }</Radio>
