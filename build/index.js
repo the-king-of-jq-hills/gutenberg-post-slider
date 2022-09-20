@@ -32,12 +32,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-
 
 
 
@@ -52,20 +46,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
 
 /**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
  * @return {WPElement} Element to render.
  */
 
@@ -134,8 +116,7 @@ function Edit(_ref) {
   const [posts, setPosts] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     async function loadPosts() {
-      const blogURL = siteURL + "wp-json/wp/v2/posts?per_page=" + numberOfPosts; //console.log(blogURL + " : " + numberOfPosts );
-
+      const blogURL = siteURL + "wp-json/wp/v2/posts?per_page=" + numberOfPosts;
       const response = await fetch(blogURL);
 
       if (!response.ok) {
@@ -211,8 +192,7 @@ function Edit(_ref) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
     label: "Background Overlay Opecity",
     value: overlayBgOpecity,
-    onChange: onChangesoverlayBgOpecity //onChange={ ( newOverlayBgOpecity ) => setAttributes( { overlayBgOpecity : newOverlayBgOpecity } ) }
-    ,
+    onChange: onChangesoverlayBgOpecity,
     min: 1,
     max: 100
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("fieldset", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.TextControl, {

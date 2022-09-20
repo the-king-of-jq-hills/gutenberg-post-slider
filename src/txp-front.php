@@ -27,7 +27,7 @@ function txp_slider_render_front_slider( $attr ) {
 
 	//print_r($attr);
 
-	$response = wp_remote_get( $blog_url );
+	$response = wp_remote_get( esc_url($blog_url) );
 
 	// Exit if error.
 	if ( is_wp_error( $response ) ) {
@@ -115,7 +115,6 @@ function txp_slider_render_front_slider( $attr ) {
 
 	return $output ?? '<strong>Sorry! Could not find any post.</strong>';
 }
-
 
 add_action( 'wp_enqueue_scripts', 'txp_swiper_assets' );
 function txp_swiper_assets() {
