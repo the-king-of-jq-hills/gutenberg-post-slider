@@ -1,7 +1,7 @@
 {
 	"name": "txp-slider",
-	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
+	"version": "0.1.2",
+	"description": "WordPress Gutenberg Slider Plugin Using REST API",
 	"author": "marsian",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
