@@ -10,8 +10,11 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       txp-slider
  *
- * @package           create-block
+ * @package           txp-slider
  */
+
+// Block direct access to the main plugin file.
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -24,4 +27,4 @@ function create_block_txp_slider_block_init() {
 add_action( 'init', 'create_block_txp_slider_block_init' );
 
 
-require plugin_dir_path( __FILE__ ) . './src/txp-front.php';
+require plugin_dir_path( __FILE__ ) . './inc/txp-front.php';
