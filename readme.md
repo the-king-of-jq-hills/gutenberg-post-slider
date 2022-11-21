@@ -13,7 +13,7 @@
 
 <p>A responsive, accessible, keboard enabled WordPress slider/carousel block plugin using React and WP REST API.</p>
 
-### NPM package used
+### NPM Packages Used
 
 ####
 <div>@wordpress/create-block : https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/</div>
@@ -40,6 +40,6 @@
 
 ### Changelog
 
-### 0.1.0
+#### 0.1.0
 * Release
 
