@@ -15,13 +15,13 @@ A responsive, accessible, keboard enabled slider/carousel using React and WP RES
 == Screenshots ==
 
 Single slide view slider
-![Alt text](./screenshot-1.jpg?raw=true "Single slide view slider")
+![Single Slide View](./screenshot-1.jpg?raw=true "Single slide view slider")
 
 Multislide view carousel
-![Alt text](./screenshot-2.jpg?raw=true "Multislide view carousel")
+![Multi Slide View](./screenshot-2.jpg?raw=true "Multislide view carousel")
 
 Edit view with controls
-![Alt text](./screenshot-3.jpg?raw=true "Edit view with controls")
+![Edit View With Console](./screenshot-3.jpg?raw=true "Edit view with controls")
 
 == Changelog ==
 

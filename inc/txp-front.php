@@ -20,12 +20,10 @@ function txp_slider_render_front_slider( $attr ) {
 	$slides = '';
 	$columnclass = '';
 
-	//global $txpcolumns;
+
 	$txpcolumns = $attr['numberOfColumns'];
 
 	$blog_url = $attr['siteURL']."wp-json/wp/v2/posts?per_page=".$attr['numberOfPosts'];
-
-	//print_r($attr);
 
 	$response = wp_remote_get( esc_url($blog_url) );
 
